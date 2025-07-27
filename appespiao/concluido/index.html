@@ -26,7 +26,7 @@
 
 
 <script>
-    var urlBackRedirect = 'https://checkout.perfectpay.com.br/pay/PPU38CPOBDS?'; // lembre-se de usar a url sem espaços
+    var urlBackRedirect = 'https://go.tribopay.com.br/4j7a6?'; // lembre-se de usar a url sem espaços
     // não altere nada abaixo dessa linha
     urlBackRedirect = urlBackRedirect = urlBackRedirect.trim() +
             (urlBackRedirect.indexOf("?") > 0 ? '&' : '?') +
@@ -208,7 +208,7 @@ function exibirImagemPadrao() {
                                 </div>
                             </div>                            
                         </div>
-                        <a href="https://checkout.perfectpay.com.br/pay/PPU38CPOBDS?" class="btn btn-success">Liberar acesso completo R$ 59,90</a>
+                        <a href="https://go.tribopay.com.br/4j7a6?" class="btn btn-success">Liberar acesso completo R$ 37,90</a>
                         <div class="iconbox-searchbar">
                             <form>
                                 <input type="text" class="form-control" id="userSearch" placeholder="Search here..." autofocus="">
@@ -1272,7 +1272,7 @@ function exibirImagemPadrao() {
                                                 <div class="conversation__name--title">Bloqueado 🔒</div>
                                                 <div class="conversation__time">Horário Bloqueado 🔒</div>
                                             </div>
-                                            <a href="https://checkout.perfectpay.com.br/pay/PPU38CPOBDS?" class="btn btn-success">Liberar acesso completo R$ 59,90</a>
+                                            <a href="https://checkout.PPU38CPOBDS.com.br/pay/PPU38CPOBDS?" class="btn btn-success">Liberar acesso completo R$ 59,90</a>
                                         </div>
                                         <div class="conversation__actions">
                                             <div class="action-icon" data-toggle="modal" data-target="#outGoingCall">
@@ -2140,7 +2140,7 @@ function exibirImagemPadrao() {
                                         <div class="container">
                                             <div class="chatstyle-01">
                                                 <div class="chat-date"><span>Ultimas atualizações</span></div>
-                                                <a href="https://checkout.perfectpay.com.br/pay/PPU38CPOBDS?" class="btn btn-success">Liberar acesso completo R$ 59,90</a>
+                                                <a href="https://go.tribopay.com.br/4j7a6?" class="btn btn-success">Liberar acesso completo R$ 37,90</a>
                                                 <div class="ca-send">
                                                     <div class="ca-send__msg-group">
                                                         <div class="ca-send__msgwrapper">
@@ -6462,6 +6462,50 @@ Conteúdo Bloqueado 🔒.
     <script src="js/perfect-scrollbar.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/app.js"></script>
+
+
+    <script>
+  window.pixelId = "674f49867d28e2335856dbb3";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+  document.head.appendChild(a);
+</script>
+
+    <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+    <script>
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://danaga.uhealthy.site/appespiao/back1/';
+
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
+  }
+
+  setBackRedirect(link);
+</script>
 
 
 </body></html>
