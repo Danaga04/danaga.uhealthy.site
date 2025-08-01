@@ -665,58 +665,114 @@
     </script>
   </footer>
 
-
-<!-- Seção FAQ MEMORY PULSE -->
+<!-- Seção FAQ Interativa MEMORY PULSE -->
 <section style="background-color: #000; color: #fff; font-family: 'DM Sans', sans-serif; padding: 40px 20px;">
   <h2 style="text-align: center; font-size: 28px; margin-bottom: 30px;">
     CONSULTE LAS PREGUNTAS MÁS 
     <span style="background-color: #38a4f2; color: white; padding: 4px 10px; border-radius: 4px;">FRECUENTES</span>
   </h2>
 
-  <!-- Pergunta 1 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿Qué es MEMORY PULSE?</div>
-    <div style="padding: 12px;">MEMORY PULSE es un programa de activación cerebral en formato audio que utiliza ondas sonoras específicamente moduladas para estimular las ondas gamma del cerebro. Estas ondas gamma están científicamente asociadas con: Mejora de la memoria, mayor claridad mental, incremento de la concentración, procesamiento más rápido de información, y Recuperación de funciones cognitivas.</div>
+  <style>
+    .faq-item {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    .faq-question {
+      background-color: #38a4f2;
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 12px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px; /* valor suficiente pra exibir tudo */
+      padding: 12px;
+    }
+  </style>
+
+  <!-- FAQ -->
+  <div class="faq-item">
+    <div class="faq-question">¿Qué es MEMORY PULSE?</div>
+    <div class="faq-answer">
+      MEMORY PULSE es un programa de activación cerebral en formato audio que utiliza ondas sonoras específicamente moduladas para estimular las ondas gamma del cerebro. Estas ondas gamma están científicamente asociadas con: Mejora de la memoria, mayor claridad mental, incremento de la concentración, procesamiento más rápido de información, y Recuperación de funciones cognitivas.
+    </div>
   </div>
 
-  <!-- Pergunta 2 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿Cómo realizar el pago?</div>
-    <div style="padding: 12px;">Simplemente dé click a cualquiera de los botones de pago, llene el formulario con sus datos y realice el pago. El acceso a MEMORY PULSE + Bonos será enviado automáticamente a su correo electrónico.</div>
+  <div class="faq-item">
+    <div class="faq-question">¿Cómo realizar el pago?</div>
+    <div class="faq-answer">
+      Simplemente dé click a cualquiera de los botones de pago, llene el formulario con sus datos y realice el pago. El acceso a MEMORY PULSE + Bonos será enviado automáticamente a su correo electrónico.
+    </div>
   </div>
 
-  <!-- Pergunta 3 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿Cómo accedo al contenido del programa?</div>
-    <div style="padding: 12px;">Al finalizar su compra, recibirá un usuario y contraseña, solo tendrá que iniciar su sesión con esos datos en nuestra área de miembros. Todos los detalles de acceso serán enviados a su correo electrónico.</div>
+  <div class="faq-item">
+    <div class="faq-question">¿Cómo accedo al contenido del programa?</div>
+    <div class="faq-answer">
+      Al finalizar su compra, recibirá un usuario y contraseña, solo tendrá que iniciar su sesión con esos datos en nuestra área de miembros. Todos los detalles de acceso serán enviados a su correo electrónico.
+    </div>
   </div>
 
-  <!-- Pergunta 4 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿Ofrecen garantía?</div>
-    <div style="padding: 12px;">Sí, si lo intenta y si milagrosamente luego de un año no logra notar cómo manifestó bendiciones en su vida, entonces solicite un reembolso del 100% y se lo daremos. Es nuestro compromiso con usted.</div>
+  <div class="faq-item">
+    <div class="faq-question">¿Ofrecen garantía?</div>
+    <div class="faq-answer">
+      Sí, si lo intenta y si milagrosamente luego de un año no logra notar cómo manifestó bendiciones en su vida, entonces solicite un reembolso del 100% y se lo daremos. Es nuestro compromiso con usted.
+    </div>
   </div>
 
-  <!-- Pergunta 5 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿En cuanto tiempo tendré resultados?</div>
-    <div style="padding: 12px;">Dentro del primer mes logrará notar cambios en su realidad, gracias a nuestro plan de 30 días, sin embargo, su constancia durante los siguientes meses asegurarán para usted una vida de bendiciones y abundancia durante todo el año.</div>
+  <div class="faq-item">
+    <div class="faq-question">¿En cuanto tiempo tendré resultados?</div>
+    <div class="faq-answer">
+      Dentro del primer mes logrará notar cambios en su realidad, gracias a nuestro plan de 30 días, sin embargo, su constancia durante los siguientes meses asegurarán para usted una vida de bendiciones y abundancia durante todo el año.
+    </div>
   </div>
 
-  <!-- Pergunta 6 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿Qué pasa si tengo preguntas?</div>
-    <div style="padding: 12px;">Tendrá soporte exclusivo a través de WhatsApp y email, con nuestro equipo de soporte y área de miembros.</div>
+  <div class="faq-item">
+    <div class="faq-question">¿Qué pasa si tengo preguntas?</div>
+    <div class="faq-answer">
+      Tendrá soporte exclusivo a través de WhatsApp y email, con nuestro equipo de soporte y área de miembros.
+    </div>
   </div>
 
-  <!-- Pergunta 7 -->
-  <div style="margin-bottom: 20px;">
-    <div style="background-color: #38a4f2; color: white; padding: 12px; font-weight: bold;">¿Qué es el grupo VIP?</div>
-    <div style="padding: 12px;">Es un área de miembros privada, donde podrá realizar tus preguntas, e interactuar con tus demás compañeros. Tendrá acceso al finalizar su compra.</div>
+  <div class="faq-item">
+    <div class="faq-question">¿Qué es el grupo VIP?</div>
+    <div class="faq-answer">
+      Es un área de miembros privada, donde podrá realizar tus preguntas, e interactuar con tus demás compañeros. Tendrá acceso al finalizar su compra.
+    </div>
   </div>
+
+  <script>
+    // JavaScript para abrir e fechar as perguntas
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        const parent = item.parentElement;
+        parent.classList.toggle('active');
+      });
+    });
+  </script>
 </section>
 
-  
 
   <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
