@@ -712,18 +712,66 @@
     }
   </style>
 
+<!-- Seção FAQ Interativa MENTE CLARA -->
+<section style="background-color: #000; color: #fff; font-family: 'DM Sans', sans-serif; padding: 40px 20px;">
+  <h2 style="text-align: center; font-size: 28px; margin-bottom: 30px;">
+    CONSULTE LAS PREGUNTAS MÁS 
+    <span style="background-color: #38a4f2; color: white; padding: 4px 10px; border-radius: 4px;">FRECUENTES</span>
+  </h2>
+
+  <style>
+    .faq-item {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    .faq-question {
+      background-color: #38a4f2;
+      color: white;
+      padding: 12px;
+      font-weight: bold;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 20px;
+      font-size: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: '−';
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+      padding: 0 12px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 12px;
+    }
+  </style>
+
+  
   <!-- FAQ -->
   <div class="faq-item">
-    <div class="faq-question">¿Qué es MEMORY PULSE?</div>
+    <div class="faq-question">¿Qué es MENTE CLARA?</div>
     <div class="faq-answer">
-      MEMORY PULSE es un programa de activación cerebral en formato audio que utiliza ondas sonoras específicamente moduladas para estimular las ondas gamma del cerebro. Estas ondas gamma están científicamente asociadas con: Mejora de la memoria, mayor claridad mental, incremento de la concentración, procesamiento más rápido de información, y Recuperación de funciones cognitivas.
+      MENTE CLARA es un programa de activación cerebral en formato audio que utiliza ondas sonoras específicamente moduladas para estimular las ondas gamma del cerebro. Estas ondas gamma están científicamente asociadas con: Mejora de la memoria, mayor claridad mental, incremento de la concentración, procesamiento más rápido de información, y Recuperación de funciones cognitivas.
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">¿Cómo realizar el pago?</div>
     <div class="faq-answer">
-      Simplemente dé click a cualquiera de los botones de pago, llene el formulario con sus datos y realice el pago. El acceso a MEMORY PULSE + Bonos será enviado automáticamente a su correo electrónico.
+      Simplemente dé click a cualquiera de los botones de pago, llene el formulario con sus datos y realice el pago. El acceso a MENTE CLARA + Bonos será enviado automáticamente a su correo electrónico.
     </div>
   </div>
 
@@ -763,11 +811,9 @@
   </div>
 
   <script>
-    // JavaScript para abrir e fechar as perguntas
     document.querySelectorAll('.faq-question').forEach(item => {
       item.addEventListener('click', () => {
-        const parent = item.parentElement;
-        parent.classList.toggle('active');
+        item.parentElement.classList.toggle('active');
       });
     });
   </script>
