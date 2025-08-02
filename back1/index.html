@@ -2,391 +2,308 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MODO LEITURA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
         body {
             font-family: 'Poppins', sans-serif;
             background-color: white;
             color: black;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            font-size: 16px;
+            line-height: 1.7;
         }
-
         .header {
             background-color: #1a1a1a;
             color: white;
-            padding: 15px 10px;
+            padding: 20px 0;
             text-align: center;
-            border-bottom: 2px solid #d4af37;
+            border-bottom: 3px solid #d4af37;
         }
-
         .logo {
-            font-size: 24px;
+            font-size: 36px;
             font-weight: bold;
             margin-bottom: 5px;
         }
-
         .tagline {
-            font-size: 12px;
+            font-size: 14px;
             font-style: italic;
         }
-
         .nav-bar {
             background-color: #f8f9fa;
             padding: 10px 0;
+            text-align: center;
             border-bottom: 1px solid #eee;
-            overflow-x: auto;
-            white-space: nowrap;
         }
-
         .nav-bar a {
-            display: inline-block;
-            margin: 0 15px;
+            margin: 0 20px;
             color: #333;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
-            padding: 8px;
-            touch-action: manipulation;
         }
-
         .container {
-            max-width: 100%;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 15px;
+            padding: 30px 20px;
         }
-
         .breaking-news {
             background-color: #ff0000;
             color: white;
-            padding: 10px;
+            padding: 15px;
             text-align: center;
             font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 15px;
-            border-radius: 5px;
+            font-size: 20px;
+            margin-bottom: 25px;
             animation: pulse 1.5s infinite;
+            border-radius: 5px;
         }
-
         @keyframes pulse {
             0% { opacity: 1; }
-            50% { opacity: 0.7; }
+            50% { opacity: 0.6; }
             100% { opacity: 1; }
         }
-
         .headline {
-            font-size: 28px;
+            font-size: 44px;
             font-weight: bold;
             text-align: center;
-            margin-bottom: 15px;
-            line-height: 1.3;
+            margin-bottom: 20px;
+            line-height: 1.2;
             color: #1a1a1a;
         }
-
         .subheadline {
-            font-size: 16px;
+            font-size: 22px;
             text-align: center;
             color: #666;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-style: italic;
             line-height: 1.4;
         }
-
         .byline {
             text-align: center;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             color: #333;
-            font-size: 12px;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 15px;
+            font-size: 14px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 20px;
         }
-
-        .author, .location {
+        .author {
             font-weight: bold;
         }
-
-        .location {
-            color: #d4af37;
-        }
-
         .date {
             color: #666;
         }
-
+        .location {
+            font-weight: bold;
+            color: #d4af37;
+        }
         .article-image {
             width: 100%;
-            max-height: 200px;
+            height: 350px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 15px 0;
+            margin: 25px 0;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 14px;
-            text-align: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-
-        .article-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            object-fit: cover;
-        }
-
-        .article-content {
-            font-size: 16px;
-            text-align: justify;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .article-content p {
-            margin-bottom: 15px;
-            text-indent: 20px;
-        }
-
-        .article-content p:first-child {
             font-size: 18px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .article-content {
+            font-size: 19px;
+            text-align: justify;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .article-content p {
+            margin-bottom: 22px;
+            text-indent: 30px;
+        }
+        .article-content p:first-child {
+            font-size: 22px;
             font-weight: bold;
             text-indent: 0;
         }
-
         .highlight {
             background-color: #fff3cd;
-            padding: 15px;
-            border-left: 4px solid #d4af37;
-            margin: 20px 0;
-            font-size: 16px;
+            padding: 25px;
+            border-left: 5px solid #d4af37;
+            margin: 30px 0;
+            font-size: 21px;
             font-weight: bold;
             text-align: center;
             border-radius: 5px;
         }
-
         .quote {
             background-color: #f8f9fa;
-            border-left: 4px solid #007bff;
-            padding: 15px;
-            margin: 20px 0;
+            border-left: 5px solid #007bff;
+            padding: 25px;
+            margin: 30px 0;
             font-style: italic;
-            font-size: 16px;
+            font-size: 19px;
             border-radius: 5px;
         }
-
         .quote-author {
             text-align: right;
             font-weight: bold;
-            margin-top: 10px;
-            font-size: 14px;
+            margin-top: 15px;
+            font-size: 16px;
         }
-
         .scientific-box {
             background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-            border: 1px solid #2196f3;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 8px;
+            border: 2px solid #2196f3;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
         }
-
         .scientific-box h3 {
             color: #1976d2;
             margin-top: 0;
-            font-size: 18px;
+            font-size: 20px;
         }
-
         .testimonial-section {
             background-color: #f0f8ff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
             border: 1px solid #e0e0e0;
         }
-
         .testimonial {
             background-color: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 6px;
-            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-
         .testimonial-name {
             font-weight: bold;
             color: #d4af37;
-            margin-top: 8px;
+            margin-top: 10px;
         }
-
         .cta-section {
             background: linear-gradient(135deg, #fff3e0 0%, #ffcc02 100%);
-            padding: 20px;
+            padding: 40px;
             text-align: center;
-            margin: 20px 0;
-            border-radius: 10px;
-            border: 2px solid #d4af37;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            margin: 40px 0;
+            border-radius: 15px;
+            border: 3px solid #d4af37;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
-
         .cta-button {
             background: linear-gradient(135deg, #d4af37 0%, #b8941f 100%);
             color: black;
-            padding: 12px 25px;
-            font-size: 16px;
+            padding: 18px 35px;
+            font-size: 22px;
             font-weight: bold;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            margin-top: 15px;
+            margin-top: 20px;
             transition: all 0.3s;
-            touch-action: manipulation;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-
         .cta-button:hover {
-            transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
         }
-
         .statistics-box {
             background-color: #e8f5e8;
-            border: 1px solid #4caf50;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 8px;
+            border: 2px solid #4caf50;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 10px;
             text-align: center;
         }
-
         .number-highlight {
-            font-size: 24px;
+            font-size: 36px;
             font-weight: bold;
             color: #2e7d32;
             display: block;
         }
-
         .section-divider {
             text-align: center;
-            margin: 30px 0;
-            font-size: 18px;
+            margin: 40px 0;
+            font-size: 24px;
             font-weight: bold;
             color: #666;
         }
-
         .expert-opinion {
             background-color: #fafafa;
-            border-left: 4px solid #9c27b0;
-            padding: 15px;
-            margin: 20px 0;
+            border-left: 5px solid #9c27b0;
+            padding: 25px;
+            margin: 30px 0;
             border-radius: 5px;
         }
-
         .timeline {
-            border-left: 2px solid #d4af37;
-            padding-left: 15px;
-            margin: 20px 0;
+            border-left: 3px solid #d4af37;
+            padding-left: 20px;
+            margin: 30px 0;
         }
-
         .timeline-item {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             position: relative;
         }
-
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -19px;
-            top: 6px;
-            width: 8px;
-            height: 8px;
+            left: -25px;
+            top: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             background-color: #d4af37;
         }
-
         .timeline-date {
             font-weight: bold;
             color: #d4af37;
-            font-size: 14px;
+            font-size: 16px;
         }
-
         .footer {
             background-color: #1a1a1a;
             color: white;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
-            margin-top: 30px;
-            font-size: 14px;
+            margin-top: 50px;
         }
-
         .disclaimer {
             font-size: 12px;
             color: #666;
             text-align: center;
-            margin: 20px 0;
-            padding: 15px;
+            margin-top: 40px;
+            padding: 25px;
             background-color: #f9f9f9;
             border-radius: 5px;
         }
-
         .social-proof {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin: 15px 0;
+            gap: 20px;
+            margin: 20px 0;
             flex-wrap: wrap;
         }
-
         .social-proof div {
             background-color: #f0f0f0;
-            padding: 10px;
+            padding: 15px;
             border-radius: 5px;
-            font-size: 12px;
-            flex: 1;
-            min-width: 100px;
+            font-size: 14px;
+            text-align: center;
         }
-
         .countdown {
-            font-size: 18px;
+            font-size: 24px;
             font-weight: bold;
             color: red;
-            margin: 15px 0;
+            margin: 20px 0;
         }
-
         @media (max-width: 768px) {
-            body { font-size: 14px; }
-            .header { padding: 10px; }
-            .logo { font-size: 20px; }
-            .tagline { font-size: 10px; }
-            .nav-bar a { margin: 0 10px; font-size: 12px; }
-            .headline { font-size: 24px; }
-            .subheadline { font-size: 14px; }
-            .article-content { font-size: 14px; }
-            .article-content p:first-child { font-size: 16px; }
-            .article-image { max-height: 150px; }
-            .cta-button { font-size: 14px; padding: 10px 20px; }
-            .number-highlight { font-size: 20px; }
-            .section-divider { font-size: 16px; }
-            .container { padding: 10px; }
-        }
-
-        @media (max-width: 480px) {
-            body { font-size: 13px; }
-            .headline { font-size: 20px; }
-            .subheadline { font-size: 13px; }
-            .article-content { font-size: 13px; }
-            .article-content p { text-indent: 15px; }
-            .article-image { max-height: 120px; }
-            .cta-button { font-size: 13px; padding: 8px 15px; }
-            .number-highlight { font-size: 18px; }
+            .headline { font-size: 32px; }
+            .subheadline { font-size: 18px; }
+            .article-content { font-size: 17px; }
+            .container { padding: 20px 15px; }
         }
     </style>
 </head>
@@ -396,12 +313,12 @@
         <div class="tagline">MIRA LA NOTICIA QUE SE ESTÁ VIRALIZANDO SOBRE LA MEMORIA</div>
     </div>
     <div class="nav-bar">
-        <a href="#">INICIO</a>
-        <a href="#">CIENCIA</a>
-        <a href="#">SALUD</a>
-        <a href="#">TECNOLOGÍA</a>
-        <a href="#">AMÉRICA</a>
-        <a href="#">MUNDO</a>
+        <a>INICIO</a>
+        <a>CIENCIA</a>
+        <a>SALUD</a>
+        <a>TECNOLOGÍA</a>
+        <a>AMÉRICA</a>
+        <a>MUNDO</a>
     </div>
     <div class="container">
         <div class="breaking-news">
@@ -421,9 +338,13 @@
             <div>💬 <strong>1.247</strong> comentarios</div>
             <div>📤 <strong>8.654</strong> compartidos</div>
         </div>
-        <div class="article-image">
-            <img src="/back1/imagesback1/img1.png" alt="Imagem de ondas cerebrais sendo estudadas" loading="lazy">
-        </div>
+        <br>
+        
+<div class="article-image" style="text-align: center;">
+    <img src="/back1/imagesback1/img1.png" alt="Imagem de ondas cerebrais sendo estudadas" width="1080" height="1080" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+</div>
+<br>    
+        
         <div class="article-content">
             <p><strong>Un descubrimiento revolucionario en el campo de la neurociencia está causando un impacto sin precedentes en la comunidad científica mundial.</strong> El Dr. James Mendoza, exinvestigador de la NASA, acaba de revelar un método simple de 8 segundos que promete restaurar la memoria y la agilidad mental, basado en los estudios pioneros de la ganadora del Premio Nobel, Rita Montalcini.</p>
             <p>No hace mucho, Rita Montalcini celebró su cumpleaños número 103 en una ceremonia que dejó perpleja a la comunidad científica internacional. Durante su discurso, hizo una declaración que resonó en los pasillos de las universidades más prestigiosas del mundo: "Mi mente está más ágil hoy que cuando tenía 20 años."</p>
@@ -434,7 +355,7 @@
             <div class="quote-author">- Rita Montalcini, Ganadora del Premio Nobel de Medicina</div>
         </div>
         <div class="article-content">
-            <p>Rita Montalcini no era una anciana común de 103 años. Era una renombrada doctora que ganó el Premio Nobel por sus estudios revolucionarios sobre la salud cerebral y la memoria. Pero surgió una pregunta intrigante: si Rita hizo este descubrimiento hace 38 años, ¿por qué el público nunca supo de esto? ¿por qué la memoria de las personas no está mejorando?</p>
+            <p>Rita Montalcini no era una anciana común de 103 años. Era una renombrada doctora que ganó el Premio Nobel por sus estudios revolucionarios sobre la salud cerebral y la memoria. Pero surgió una pregunta intrigante: si Rita hizo este descubrimiento hace 38 años, ¿por qué el público nunca supo de esto? ¿Por qué la memoria de las personas no está mejorando?</p>
             <p>La respuesta, según el Dr. Mendoza, está relacionada con un extraño invasor microscópico que fue ampliamente estudiado por el MIT. A diferencia de otros invasores biológicos, este se niega a morir, atacando implacablemente las células cerebrales y provocando confusión mental y atrofia cerebral.</p>
         </div>
         <div class="scientific-box">
@@ -478,12 +399,14 @@
         </div>
         <div class="article-content">
             <p>Cuando este sistema de limpieza funciona perfectamente, te sientes mentalmente lúcido y extremadamente enfocado, independientemente de tu edad cronológica. Aprendes rápidamente, procesas información con eficiencia y tu memoria funciona como una caja fuerte ultra segura donde nada importante se pierde o se olvida.</p>
-            <p>Pero después de los 50 años, nuestras defensas naturales comienzan a debilitarse significativamente, y la limpieza cerebral se vuelve cada vez más lenta e ineficiente, permitiendo que los residuos tóxicos se acumulan sin que ningún mecanismo natural pueda eliminarlos adecuadamente.</p>
+            <p>Pero después de los 50 años, nuestras defensas naturales comienzan a debilitarse significativamente, y la limpieza cerebral se vuelve cada vez más lenta e ineficiente, permitiendo que los residuos tóxicos se acumulen sin que ningún mecanismo natural pueda eliminarlos adecuadamente.</p>
             <p>El Dr. Mendoza creó un término no médico, pero extremadamente preciso para describir esta condición: "atasco cerebral". Y la pregunta que intriga a la comunidad científica es: ¿es este atasco cerebral realmente una parte inevitable del envejecimiento normal?</p>
         </div>
-        <div class="article-image">
-            <img src="/back1/imagesback1/grafico.png" alt="Gráfico de eficiencia de la limpieza cerebral por edad" loading="lazy">
-        </div>
+        <br>
+       <div class="article-image" style="text-align: center;">
+    <img src="/back1/imagesback1/grafico.png" alt="Gráfico de eficiencia de la limpieza cerebral por edad" width="1080" height="1080" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+</div>
+        <br>
         <div class="highlight">
             🚨 ¡DESCUBRIMIENTO IMPACTANTE: La respuesta es completamente inesperada!
         </div>
@@ -676,12 +599,12 @@
             <p><strong>Valor original: $500,00</strong></p>
             <p><strong>Valor normal: $50,00</strong></p>
             <p><strong>¡SÓLO HOY: $19,00!</strong></p>
-            <p style="color: red; font-size: 16px;"><strong>¡AHORRO DE $481,00!</strong></p>
+            <p style="color: red; font-size: 18px;"><strong>¡AHORRO DE $481,00!</strong></p>
             <div class="countdown" id="countdown">¡Oferta expira en <span id="timer">00:00:00</span>!</div>
             <a href="#" class="cta-button" onclick="alert('Estás siendo redirigido a la página oficial del Dr. Mendoza...')">
                 ¡QUIERO ACTIVAR MI MENTE CLARA AHORA!
             </a>
-            <p style="font-size: 12px; margin-top: 10px;">✅ Garantía incondicional de 90 días<br>✅ Resultados visibles en 2 semanas<br>✅ Acceso inmediato por correo electrónico<br>✅ Soporte técnico completo</p>
+            <p style="font-size: 14px; margin-top: 15px;">✅ Garantía incondicional de 90 días<br>✅ Resultados visibles en 2 semanas<br>✅ Acceso inmediato por correo electrónico<br>✅ Soporte técnico completo</p>
         </div>
         <div class="article-content">
             <p>Piénsalo cuidadosamente: ¿cuánto estarías realmente dispuesto a invertir para despertar todos los días con claridad mental absoluta, completamente listo para enfrentar efectivamente cualquier cosa que pueda venir? ¿Y si puedes mantenerte cercano y emocionalmente conectado con las personas que más amas en la vida?</p>
@@ -710,12 +633,6 @@
         <p>Redacción: Av. Principal, 1000 - Ciudad, País | Teléfono: (+1) 123-456-7890</p>
     </div>
     <script>
-        // Prevent zoom on double tap
-        document.addEventListener('touchstart', function(event) {
-            if (event.touches.length > 1) {
-                event.preventDefault();
-            }
-        }, { passive: false });
 
         // Add history entry
         window.history.pushState(null, null, window.location.href);
@@ -751,7 +668,13 @@
             setInterval(updateTimer, 1000);
         }
         startCountdown();
+
+ 
+
+     
     </script>
+
+
 
     <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
@@ -759,7 +682,7 @@
   async
   defer
 ></script>
-    
 </body>
+
 </html>
 
