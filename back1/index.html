@@ -632,46 +632,6 @@
         <p>Redacción: Av. Principal, 1000 - Ciudad, País | Teléfono: (+1) 123-456-7890</p>
     </div>
     <script>
-        // IP-based location detection (using a placeholder API)
-        fetch('https://api.ipgeolocation.io/ipgeo?apiKey=API_KEY')
-            .then(response => response.json())
-            .then(data => {
-                const city = data.city || 'Ciudad';
-                document.getElementById('location').textContent = city.toUpperCase();
-            })
-            .catch(error => {
-                console.error('Error fetching location:', error);
-                document.getElementById('location').textContent = 'CIUDAD';
-            });
-
-        // Enhanced urgency system
-        let backPressed = false;
-        let exitIntentTriggered = false;
-
-        // Detect back button
-        window.addEventListener('popstate', function(event) {
-            if (!backPressed) {
-                backPressed = true;
-                showExitIntent();
-                window.history.pushState(null, null, window.location.href);
-            }
-        });
-
-        // Detect mouse leave
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !exitIntentTriggered) {
-                exitIntentTriggered = true;
-                showExitIntent();
-            }
-        });
-
-        function showExitIntent() {
-            if (confirm('🚨 ¡ESPERA! ¡No pierdas esta oportunidad única!\n\n¡Esta oferta especial de $19 expira HOY!\n\n¿Deseas continuar leyendo sobre cómo transformar tu memoria?')) {
-                return false;
-            } else {
-                alert('⏰ ¡ÚLTIMA OPORTUNIDAD: Esta oferta de $19 expira en pocas horas!\n\nHaz clic en OK para asegurar tu descuento antes que termine.');
-            }
-        }
 
         // Add history entry
         window.history.pushState(null, null, window.location.href);
@@ -708,28 +668,12 @@
         }
         startCountdown();
 
-        // Time on page alert
-        let timeOnPage = 0;
-        setInterval(function() {
-            timeOnPage++;
-            if (timeOnPage > 120 && !exitIntentTriggered) {
-                exitIntentTriggered = true;
-                alert('⚡ ¡Has estado leyendo por 2 minutos!\n\nEsto muestra tu interés genuino en mejorar tu memoria.\n\n¡Aprovecha la oferta de $19 antes que expire HOY!');
-            }
-        }, 1000);
+ 
 
-        // Scroll-based urgency
-        window.addEventListener('scroll', function() {
-            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent > 70 && !exitIntentTriggered) {
-                exitIntentTriggered = true;
-                setTimeout(function() {
-                    alert('📚 ¡Has leído casi todo el artículo!\n\nEsto demuestra tu interés en transformar tu memoria.\n\n¡Aprovecha la oferta especial de $19 antes que expire HOY!');
-                }, 2000);
-            }
-        });
+     
     </script>
 </body>
 
 </html>
+
 
