@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escudo Anti-Zombie - Protección Total en 72 Horas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+        
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h1, h2, h3 {
+            font-weight: 700;
+            margin: 40px 0 20px 0;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: clamp(24px, 5vw, 36px);
+            color: #dc2626;
+            text-align: center;
+        }
+        
+        h2 {
+            font-size: clamp(20px, 4vw, 28px);
+            color: #1f2937;
+        }
+        
+        h3 {
+            font-size: clamp(18px, 3.5vw, 22px);
+            color: #374151;
+        }
+        
+        p {
+            margin: 16px 0;
+            font-size: clamp(14px, 3vw, 16px);
+        }
+        
+        .highlight {
+            background-color: #fef3c7;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .price {
+            font-size: clamp(32px, 8vw, 48px);
+            color: #dc2626;
+            font-weight: 700;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .timer {
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-size: clamp(18px, 4vw, 24px);
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        }
+        
+        .benefits {
+            background-color: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 30px 0;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .benefit-item {
+            margin: 12px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .benefit-item span {
+            font-size: 18px;
+            min-width: 24px;
+        }
+        
+        .guarantee {
+            background: linear-gradient(135deg, #059669, #047857);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(5, 150, 105, 0.3);
+        }
+        
+        .bonus {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+        }
+        
+        .comments-section {
+            margin: 50px 0;
+        }
+        
+        .comment {
+            background-color: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 8px;
+        }
+        
+        .comment-time {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        
+        .hotmart-widget {
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .urgency-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #dc2626, #b91c1c);
+            color: white;
+            padding: 12px;
+            text-align: center;
+            font-weight: 600;
+            z-index: 1000;
+            font-size: clamp(12px, 2.5vw, 14px);
+            box-shadow: 0 2px 10px rgba(220, 38, 38, 0.5);
+        }
+        
+        .stock-counter {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 20px rgba(239, 68, 68, 0.4);
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .signature {
+            text-align: center;
+            margin: 50px 0;
+            padding: 30px;
+            background-color: #f8fafc;
+            border-radius: 12px;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .urgency-bar {
+                padding: 10px;
+                line-height: 1.4;
+            }
+            
+            .benefits, .guarantee, .bonus, .comment {
+                padding: 20px;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .benefit-item span {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1, h2, h3 {
+                margin: 30px 0 15px 0;
+            }
+            
+            .benefits, .guarantee, .bonus, .comment {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="urgency-bar" id="urgencyBar">
+        COMPRA NO FINALIZADA - TARJETA EN ANÁLISIS<br>
+        NO SALGAS O CIERRES ESTA PÁGINA
+    </div>
+
+    <div class="container" style="margin-top: 80px;">
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <span class="highlight">¡Felicidades!</span><br><br>
+            Acabas de asegurar tu copia de Mente Clara y tu vida nunca más será la misma...
+        </div>
+        
+        <p>Dr. James Mendoza aquí nuevamente.</p>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            Por favor, no salgas de esta página o actualices el navegador - esto puede causar errores en tu compra.
+        </p>
+        
+        <p>Esta información de 3 minutos es CRUCIAL y puede determinar si vas a tener 100% de éxito o apenas resultados parciales con Mente Clara...</p>
+        
+        <p>Hiciste la elección correcta al asegurar Mente Clara hoy...</p>
+        
+        <p>Y puedo garantizarte que tu mente estará más aguda, tu memoria más clara y recuperarás esa sensación de estar en control total de tu vida...</p>
+        
+        <p>Finalmente libre de la niebla mental que robaba tu confianza...</p>
+        
+        <p>Finalmente capaz de recordar nombres, fechas y conversaciones importantes sin esfuerzo...</p>
+        
+        <p>Y de una vez por todas, con la tranquilidad de saber que estás protegiendo tu cerebro del envejecimiento...</p>
+        
+        <p style="color: #dc2626; font-weight: 600; font-size: 18px;">
+            Pero ahora tengo que ser completamente honesto contigo...
+        </p>
+        
+        <h2>⚠️ PROBLEMA CRÍTICO DESCUBIERTO</h2>
+        
+        <p>En los últimos 6 meses, nuestro equipo recibió más de <span class="highlight">847 emails</span> de personas que compraron Mente Clara.</p>
+        
+        <p>Estas personas reportaron que estaban AMANDO los resultados - memoria más clara, pensamiento más rápido, energía mental increíble...</p>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            Pero, descubrieron algo preocupante...
+        </p>
+        
+        <p>Incluso con la onda gamma activada y limpiando el "embotellamiento cerebral", se dieron cuenta de que las células zombie continuaban atacando otras partes vitales del cuerpo.</p>
+        
+        <p>¿Recuerdas que mencioné que tu cerebro comanda TODOS los procesos de tu cuerpo?</p>
+        
+        <p>Pues bien... estas células zombie invasoras no se detienen apenas en el cerebro.</p>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            Se extienden como un virus por 5 centros vitales:
+        </p>
+        
+        <div class="benefits">
+            <div class="benefit-item">
+                <span>💔</span>
+                <div><strong>Centro Cardíaco</strong> - Afectando tu energía vital y dejándote agotado</div>
+            </div>
+            <div class="benefit-item">
+                <span>🍽️</span>
+                <div><strong>Centro Digestivo</strong> - Bloqueando la absorción de nutrientes que tu cerebro necesita</div>
+            </div>
+            <div class="benefit-item">
+                <span>😴</span>
+                <div><strong>Centro del Sueño</strong> - Impidiendo la regeneración nocturna que consolida tus memorias</div>
+            </div>
+            <div class="benefit-item">
+                <span>⚡</span>
+                <div><strong>Centro Hormonal</strong> - Reduciendo hormonas esenciales para la memoria y enfoque</div>
+            </div>
+            <div class="benefit-item">
+                <span>🩸</span>
+                <div><strong>Centro de Circulación</strong> - Limitando el oxígeno que llega a tu cerebro</div>
+            </div>
+        </div>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            Es como tapar un hueco en la pared mientras otros 5 huecos continúan abiertos.
+        </p>
+        
+        <p>Y mira, esto es devastador porque incluso con Mente Clara funcionando perfectamente en tu cerebro...</p>
+        
+        <p>Estas células zombie continúan saboteando tu energía, tu sueño, tu digestión...</p>
+        
+        <p>Resultado? No puedes aprovechar el 100% de los beneficios que Mente Clara puede darte.</p>
+        
+        <p>Es como tener un auto Ferrari con motor perfecto, pero con 4 llantas ponchadas.</p>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            Y no puedo aceptar que tengas apenas resultados parciales...
+        </p>
+        
+        <p>Invertiste en tu salud cerebral. Mereces resultados COMPLETOS.</p>
+        
+        <h2>🔬 LA SOLUCIÓN ANCESTRAL</h2>
+        
+        <p>Por eso, llamé a mi equipo de emergencia y dije:</p>
+        
+        <p>"Necesitamos encontrar una forma de crear un escudo protector que impida que estas células zombie se extiendan por los 5 centros vitales."</p>
+        
+        <p style="color: #1f2937; font-weight: 600;">
+            Y lo que descubrimos cambió todo...
+        </p>
+        
+        <p>Existe una antigua receta usada hace más de 800 años por monjes tibetanos que vivían hasta los 120 años con mentes cristalinas...</p>
+        
+        <p>Esta receta usa apenas 2 ingredientes que ya tienes en casa: <span class="highlight">cúrcuma dorada y miel pura</span>.</p>
+        
+        <p>Pero no de cualquier manera... existe una proporción EXACTA y un ritual específico de 72 horas que crea lo que llamamos "Escudo Anti-Zombie".</p>
+        
+        <h3>Mira cómo funciona:</h3>
+        
+        <p>La cúrcuma contiene curcumina - el senolítico natural más poderoso del planeta. Literalmente DISUELVE las células zombie.</p>
+        
+        <p>La miel cruda contiene enzimas que crean una barrera protectora en tus 5 centros vitales.</p>
+        
+        <p>Juntos, en proporción científica exacta, forman un escudo que:</p>
+        
+        <div class="benefits">
+            <div class="benefit-item"><span>✅</span><div><strong>IMPIDE</strong> que las células zombie se extiendan</div></div>
+            <div class="benefit-item"><span>✅</span><div><strong>ELIMINA</strong> las que ya están en los centros vitales</div></div>
+            <div class="benefit-item"><span>✅</span><div><strong>PROTEGE</strong> tu cuerpo mientras Mente Clara limpia tu cerebro</div></div>
+            <div class="benefit-item"><span>✅</span><div><strong>POTENCIALIZA</strong> los resultados de la onda gamma en hasta 340%</div></div>
+        </div>
+        
+        <p style="color: #059669; font-weight: 600;">
+            Y lo mejor: mientras Mente Clara trabaja en tu cerebro, el Escudo Anti-Zombie protege todo el resto de tu cuerpo.
+        </p>
+        
+        <p>Es la combinación perfecta para resultados TOTALES.</p>
+        
+        <h2 style="color: #dc2626;">🛡️ ESCUDO ANTI-ZOMBIE: PROTECCIÓN TOTAL EN 72 HORAS</h2>
+        
+        <p>Fue para garantizar que tengas resultados 100% completos que creamos el programa:</p>
+        
+        <div class="benefits">
+            <h3 style="color: #1f2937; margin-bottom: 20px;">📋 PROTOCOLO EXACTO DE 72 HORAS</h3>
+            <div class="benefit-item"><span>•</span><div>Proporción científica precisa entre cúrcuma y miel</div></div>
+            <div class="benefit-item"><span>•</span><div>Horarios específicos para máxima absorción</div></div>
+            <div class="benefit-item"><span>•</span><div>Ritual matinal que activa el escudo en minutos</div></div>
+            
+            <h3 style="color: #1f2937; margin: 30px 0 20px 0;">🛡️ MAPA DE LOS 5 CENTROS VITALES</h3>
+            <div class="benefit-item"><span>•</span><div>Cómo identificar si las células zombie ya se extendieron</div></div>
+            <div class="benefit-item"><span>•</span><div>Señales de alerta que 99% de las personas ignoran</div></div>
+            <div class="benefit-item"><span>•</span><div>Técnicas para fortalecer cada centro vital</div></div>
+            
+            <h3 style="color: #1f2937; margin: 30px 0 20px 0;">⚡ POTENCIALIZADOR MENTE CLARA</h3>
+            <div class="benefit-item"><span>•</span><div>Cómo aumentar los resultados de la onda gamma en 340%</div></div>
+            <div class="benefit-item"><span>•</span><div>Combinación perfecta: cuándo usar el Escudo + Mente Clara</div></div>
+            <div class="benefit-item"><span>•</span><div>Cronograma semanal para resultados máximos</div></div>
+        </div>
+        
+        <p>Y hay más...</p>
+        
+        <p>También recibirás el <span class="highlight">"Detector de Células Zombie"</span> - un checklist simple que muestra EXACTAMENTE dónde estas células están atacando tu cuerpo.</p>
+        
+        <p style="color: #dc2626; font-weight: 600; font-size: 18px;">
+            ¿Cuánto vale tener protección TOTAL contra estas células invasoras?
+        </p>
+        
+        <p>¿Cuánto vale tener el 100% de los beneficios de Mente Clara?</p>
+        
+        <p>¿Cuánto vale despertar con energía total, digestión perfecta y sueño reparador?</p>
+        
+        <p>Si fueras a hacer exámenes para detectar estas células, pagarías más de $800...</p>
+        
+        <p>Si fueras a comprar senolíticos farmacéuticos, gastarías $2,500 por año...</p>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            Pero no vas a pagar ni $800, ni $500...
+        </p>
+        
+        <p>Por haber confiado en Mente Clara, puedes asegurar el Escudo Anti-Zombie por apenas:</p>
+        
+        <div class="price">$47 USD - PAGO ÚNICO</div>
+        
+        <div class="stock-counter">
+            ⚠️ QUEDAN APENAS <span id="stock">23</span> UNIDADES DISPONIBLES ⚠️
+        </div>
+        
+        <div class="guarantee">
+            🔒 <strong>GARANTÍA BLINDADA DE 90 DÍAS</strong><br><br>
+            Usa el Escudo Anti-Zombie por 90 días completos. Si no sientes tu cuerpo 100% protegido y los resultados de Mente Clara potencializados, devolvemos cada centavo.
+        </div>
+        
+        <div class="timer">
+            ⏰ ESTA OFERTA EXPIRA EN: <span id="timer">04:59</span>
+        </div>
+        
+        <!-- HOTMART - Sales Funnel Widget -->
+        <div class="hotmart-widget">
+            <div id="hotmart-sales-funnel"></div>
+        </div>
+        
+        <div class="bonus">
+            🎁 <strong>BONO ESPECIAL - SOLO HOY:</strong><br><br>
+            <strong>AUDÍFONOS BLUETOOTH PREMIUM DE $299 - ¡GRATIS!</strong><br><br>
+            Las primeras 200 personas que aseguren el Escudo Anti-Zombie ahora recibirán audífonos bluetooth de la mejor marca, entregados en tu casa sin pagar un centavo adicional.<br><br>
+            Participarás automáticamente al recibir el programa.<br><br>
+            <em>Quedan apenas <span id="bonus-stock">47</span> plazas para este bono.</em>
+        </div>
+        
+        <p style="color: #dc2626; font-weight: 600;">
+            ⚠️ ÚLTIMA ADVERTENCIA:
+        </p>
+        
+        <p>Esta oferta existe APENAS en esta página, APENAS para quien compró Mente Clara hoy.</p>
+        
+        <p>Si sales de esta página, perderás esta oportunidad para siempre.</p>
+        
+        <p>El Escudo Anti-Zombie no se vende por separado.</p>
+        
+        <h3>La elección es tuya:</h3>
+        
+        <p><strong>OPCIÓN 1:</strong> Quedarte apenas con Mente Clara y tener resultados parciales, mientras las células zombie continúan atacando tus 5 centros vitales.</p>
+        
+        <p><strong>OPCIÓN 2:</strong> Asegurar protección TOTAL con el Escudo Anti-Zombie y tener resultados 340% más poderosos, energía máxima y paz mental completa.</p>
+        
+        <h3 style="color: #059669;">Si quieres:</h3>
+        
+        <div class="benefits">
+            <div class="benefit-item"><span>✓</span><div>Resultados 100% completos de Mente Clara</div></div>
+            <div class="benefit-item"><span>✓</span><div>Energía vital del Centro Cardíaco desbloqueada</div></div>
+            <div class="benefit-item"><span>✓</span><div>Digestión perfecta y nutrientes llegando al cerebro</div></div>
+            <div class="benefit-item"><span>✓</span><div>Sueño reparador que consolida tus memorias</div></div>
+            <div class="benefit-item"><span>✓</span><div>Hormonas de la memoria en niveles óptimos</div></div>
+            <div class="benefit-item"><span>✓</span><div>Circulación cerebral máxima</div></div>
+        </div>
+        
+        <p style="margin: 40px 0; text-align: center; font-style: italic;">
+            Oferta válida apenas en esta página. No pierdas esta única oportunidad.
+        </p>
+        
+        <div class="signature">
+            <p><strong>P.D.:</strong> Recuerda, ya tomaste la decisión más importante al asegurar Mente Clara. Ahora solo completa tu protección total. Tus próximas 72 horas pueden cambiar el resto de tu vida.</p>
+            
+            <p style="margin-top: 30px;">
+                <strong>Dr. James Mendoza</strong><br>
+                <em>Neurocientífico, Ex-NASA</em>
+            </p>
+        </div>
+        
+        <!-- Sección de Comentarios -->
+        <div class="comments-section">
+            <h3 style="text-align: center; margin-bottom: 30px;">💬 Lo que dicen nuestros clientes:</h3>
+            
+            <div class="comment">
+                <div class="comment-author">María González 🇲🇽</div>
+                <div class="comment-time">Hace 2 horas</div>
+                <p>¡Increíble! Llevo apenas 5 días con el Escudo Anti-Zombie y ya siento la diferencia. Mi energía está por las nubes y duermo como un bebé. El Mente Clara ahora funciona 10 veces mejor. ¡Gracias Dr. Mendoza!</p>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">Carlos Ruiz 🇪🇸</div>
+                <div class="comment-time">Hace 4 horas</div>
+                <p>Al principio era escéptico, pero después de la primera semana usando ambos productos juntos, mi esposa dice que parezco 10 años más joven. Mi concentración en el trabajo mejoró un 300%. Vale cada centavo.</p>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">Ana Rodríguez 🇨🇴</div>
+                <div class="comment-time">Hace 6 horas</div>
+                <p>¡Los audífonos gratis llegaron súper rápido! Pero lo mejor es cómo me siento. Era como si tuviera un interruptor apagado y ahora está encendido. Mi digestión mejoró, duermo mejor y mi memoria está increíble. ¡Recomendadísimo!</p>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">Luis Fernández 🇦🇷</div>
+                <div class="comment-time">Hace 8 horas</div>
+                <p>Pensé que solo necesitaba el Mente Clara, pero cuando leí sobre las células zombie atacando otros órganos, todo tuvo sentido. Mi cansancio crónico desapareció en 3 días. Mi médico no puede creerlo.</p>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">Isabella Torres 🇨🇱</div>
+                <div class="comment-time">Hace 12 horas</div>
+                <p>Soy nutricionista y al principio dudé, pero la ciencia detrás del Escudo Anti-Zombie es sólida. La cúrcuma + miel en esas proporciones es genial. Mis pacientes me preguntan qué estoy tomando porque me ven radiante.</p>
+            </div>
+            
+            <div class="comment">
+                <div class="comment-author">Roberto Silva 🇵🇪</div>
+                <div class="comment-time">Hace 1 día</div>
+                <p>¡Qué diferencia! Tengo 67 años y me siento como de 40. El protocolo de 72 horas es súper fácil de seguir. Mi nieto dice que ahora puedo seguirle el ritmo jugando fútbol. ¡Gracias por cambiar mi vida!</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- HOTMART - Sales Funnel Widget -->
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+    <script>
+        checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+    </script>
+
+    <script>
+        // Contador regresivo
+        let timeLeft = 300; // 5 minutos en segundos
+        
+        function updateCountdown() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('timer').textContent = formattedTime;
+            
+            if (timeLeft > 0) {
+                timeLeft--;
+            } else {
+                // Reiniciar el contador cuando llegue a 0
+                timeLeft = 300;
+            }
+        }
+        
+        // Actualizar cada segundo
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Contador de stock
+        let stock = 23;
+        let bonusStock = 47;
+        
+        function updateStock() {
+            // Reducir stock aleatoriamente
+            if (Math.random() < 0.1 && stock > 5) { // 10% de probabilidad
+                stock--;
+                document.getElementById('stock').textContent = stock;
+            }
+            
+            if (Math.random() < 0.08 && bonusStock > 10) { // 8% de probabilidad
+                bonusStock--;
+                document.getElementById('bonus-stock').textContent = bonusStock;
+            }
+        }
+        
+        // Actualizar stock cada 30 segundos
+        setInterval(updateStock, 30000);
+        
+        // Prevenir salir de la página
+        window.addEventListener('beforeunload', function(e) {
+            e.preventDefault();
+            e.returnValue = '¿Estás seguro de que quieres salir? Tu compra no ha sido finalizada.';
+            return '¿Estás seguro de que quieres salir? Tu compra no ha sido finalizada.';
+        });
+    </script>
+</body>
+</html>
