@@ -105,7 +105,7 @@
 
     /* Estilos para desktop */
     #desktop-content {
-      background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #15803d 100%);
+      background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 50%, #7c3aed 100%);
       min-height: 100vh;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
@@ -127,14 +127,14 @@
     .desktop-header {
       text-align: center;
       padding: 40px 0;
-      border-bottom: 3px solid #f0f9ff;
+      border-bottom: 3px solid #f5f3ff;
       margin-bottom: 40px;
-      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
       border-radius: 15px;
     }
 
     .desktop-header h1 {
-      color: #14532d;
+      color: #581c87;
       font-size: 2.8rem;
       margin-bottom: 20px;
       font-weight: 800;
@@ -142,7 +142,7 @@
     }
 
     .desktop-subtitle {
-      color: #166534;
+      color: #7c2d92;
       font-size: 1.3rem;
       max-width: 700px;
       margin: 0 auto;
@@ -153,7 +153,7 @@
       text-align: center;
       margin: 50px 0;
       padding: 40px;
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+      background: linear-gradient(135deg, #a855f7 0%, #8b5cf6 50%, #7c3aed 100%);
       border-radius: 20px;
       color: white;
     }
@@ -199,7 +199,7 @@
     }
 
     .desktop-feature-card h3 {
-      color: #14532d;
+      color: #581c87;
       font-size: 1.4rem;
       margin-bottom: 15px;
       font-weight: 600;
@@ -211,7 +211,7 @@
     }
 
     .desktop-pricing-section {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%);
       color: white;
       padding: 50px;
       border-radius: 20px;
@@ -296,14 +296,14 @@
     }
 
     .desktop-btn-accept {
-      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
       color: white;
-      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+      box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
     }
 
     .desktop-btn-accept:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(22, 163, 74, 0.6);
+      box-shadow: 0 15px 35px rgba(139, 92, 246, 0.6);
     }
 
     .desktop-testimonials {
@@ -313,7 +313,7 @@
     .desktop-testimonials h3 {
       text-align: center;
       font-size: 1.8rem;
-      color: #14532d;
+      color: #581c87;
       margin-bottom: 30px;
     }
 
@@ -324,26 +324,26 @@
     }
 
     .desktop-testimonial-card {
-      background: #f0fdf4;
+      background: #faf5ff;
       padding: 25px;
       border-radius: 12px;
-      border-left: 4px solid #22c55e;
+      border-left: 4px solid #a855f7;
     }
 
     .desktop-testimonial-card p {
       font-style: italic;
-      color: #15803d;
+      color: #7c3aed;
       margin-bottom: 15px;
     }
 
     .desktop-testimonial-author {
       font-weight: 600;
-      color: #14532d;
+      color: #581c87;
     }
 
     .desktop-guarantee {
-      background: #f0fff4;
-      border: 2px solid #68d391;
+      background: #fdf4ff;
+      border: 2px solid #d8b4fe;
       border-radius: 15px;
       padding: 30px;
       text-align: center;
@@ -351,13 +351,13 @@
     }
 
     .desktop-guarantee h4 {
-      color: #22543d;
+      color: #7c2d92;
       font-size: 1.3rem;
       margin-bottom: 15px;
     }
 
     .desktop-guarantee p {
-      color: #2f855a;
+      color: #8b5cf6;
     }
 
     @media (max-width: 768px) {
@@ -555,16 +555,11 @@
 
     <div class="mobile-price-circle">$ 47,00</div>
 
-    <!-- Botões de aceitar e recusar -->
-    <a class="mobile-btn-accept" href="https://go.perfectpay.com.br/PPU38CPTUQO?upsell=true" target="_blank" rel="noopener noreferrer">
-      DESBLOQUEAR FUNCIÓN AHORA
-    </a>
-    
-    <br><br>
-    
-    <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" style="display: inline-block; margin: 15px 10px; color: #666; font-size: 14px; text-decoration: underline; cursor: pointer; line-height: 1.4; max-width: 300px; text-align: center;" onmouseover="this.style.color='#333'; this.style.textDecoration='none';" onmouseout="this.style.color='#666'; this.style.textDecoration='underline';">
-      Rechazar esta oferta y continuar sin la función de recuperación
-    </a>
+    <!-- Botões Kiwify Mobile -->
+    <div style="text-align:center">
+      <button id="kiwify-upsell-trigger-2az3kbH" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">¡SÍ! LO QUIERO.</button>
+      <div id="kiwify-upsell-cancel-trigger" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">rechazar, no quiero</div>
+    </div>
 
     <!-- AVISO DE REINTENTO -->
     <p style="font-size: 14px; color: #555; margin-top: 10px;">
@@ -585,108 +580,108 @@
 <div id="desktop-content">
     <div class="desktop-container">
         <div class="desktop-header">
-            <h1>🌿 Desparasitación Natural Completa</h1>
-            <p class="desktop-subtitle">Elimina parásitos de forma natural y segura con métodos probados por generaciones</p>
+            <h1>🎻 Truco JS - Curso de Violino</h1>
+            <p class="desktop-subtitle">Domine o violino com lições claras e progressivas - do básico ao avançado</p>
         </div>
 
         <div class="desktop-hero-section">
-            <h2>Limpia Tu Organismo Naturalmente</h2>
-            <p>Descubre el poder de las hierbas medicinales y remedios ancestrales para eliminar parásitos intestinales de forma efectiva y sin efectos secundarios</p>
+            <h2>Transforme Sua Paixão Pela Música em Realidade</h2>
+            <p>Aprenda violino de forma prática e envolvente com nosso método exclusivo. Ideal para iniciantes e entusiastas que desejam tocar com confiança e estilo.</p>
         </div>
 
         <div class="desktop-features-grid">
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🌱</span>
-                <h3>100% Ingredientes Naturales</h3>
-                <p>Fórmulas basadas en hierbas medicinales como ajenjo, clavo, nogal negro y otras plantas con propiedades antiparasitarias comprobadas científicamente.</p>
+                <span class="desktop-feature-icon">🎯</span>
+                <h3>Método Progressivo</h3>
+                <p>Lições estruturadas que te levam desde os fundamentos básicos até técnicas avançadas de expressão musical, respeitando seu ritmo de aprendizagem.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🛡️</span>
-                <h3>Protocolo Completo</h3>
-                <p>Guía paso a paso de 30 días que incluye preparación, limpieza activa y mantenimiento para una desparasitación efectiva y duradera.</p>
+                <span class="desktop-feature-icon">🏆</span>
+                <h3>Técnicas Fundamentais</h3>
+                <p>Aprenda a segurar o arco corretamente, posicionar os dedos e desenvolver a postura ideal para um som limpo e profissional.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">💊</span>
-                <h3>Sin Efectos Secundarios</h3>
-                <p>A diferencia de los medicamentos químicos, nuestro método natural no causa náuseas, dolor de cabeza ni daña la flora intestinal beneficiosa.</p>
+                <span class="desktop-feature-icon">🎵</span>
+                <h3>Teoria e Prática Combinadas</h3>
+                <p>Equilibrio perfeito entre conhecimento teórico e exercícios práticos para acelerar seu aprendizado e fixação das técnicas.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">📋</span>
-                <h3>Lista de Síntomas</h3>
-                <p>Aprende a identificar los signos de infección parasitaria: fatiga, problemas digestivos, alergias, insomnio y muchos otros síntomas.</p>
+                <span class="desktop-feature-icon">✨</span>
+                <h3>Dicas Exclusivas</h3>
+                <p>Segredos e truques únicos desenvolvidos por professores experientes para fazer seu violino "cantar" com expressividade e emoção.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🥗</span>
-                <h3>Plan Nutricional</h3>
-                <p>Dieta específica que potencia la eliminación de parásitos y fortalece el sistema inmunológico durante todo el proceso de limpieza.</p>
+                <span class="desktop-feature-icon">🎨</span>
+                <h3>Expressão Musical</h3>
+                <p>Desenvolva sua musicalidade e aprenda a transmitir emoções através do seu instrumento com técnicas avançadas de interpretação.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">👨‍⚕️</span>
-                <h3>Respaldado Científicamente</h3>
-                <p>Métodos validados por estudios científicos y utilizados exitosamente por naturópatas y profesionales de medicina alternativa.</p>
+                <span class="desktop-feature-icon">💡</span>
+                <h3>Para Iniciantes e Entusiastas</h3>
+                <p>Curso adaptado tanto para quem nunca tocou quanto para quem já tem experiência e quer aperfeiçoar sua técnica.</p>
             </div>
         </div>
 
         <div class="desktop-testimonials">
-            <h3>Testimonios Reales de Nuestros Usuarios</h3>
+            <h3>Depoimentos de Nossos Alunos</h3>
             <div class="desktop-testimonial-grid">
                 <div class="desktop-testimonial-card">
-                    <p>"Después de años de problemas digestivos, finalmente encontré la solución. En 30 días me sentí como nueva, con más energía que nunca."</p>
-                    <div class="desktop-testimonial-author">- Carmen López, 45 años</div>
+                    <p>"Em 3 meses consegui tocar minha primeira música completa. O método é incrível e as explicações muito claras!"</p>
+                    <div class="desktop-testimonial-author">- Ana Carolina, 28 anos</div>
                 </div>
                 <div class="desktop-testimonial-card">
-                    <p>"Mi doctor no encontraba la causa de mi fatiga crónica. Este protocolo natural me devolvió la vida. Resultados increíbles sin químicos."</p>
-                    <div class="desktop-testimonial-author">- Miguel Santos, 38 años</div>
+                    <p>"Sempre sonhei em tocar violino. Com 45 anos pensei que era tarde demais, mas o Truco JS me provou o contrário!"</p>
+                    <div class="desktop-testimonial-author">- Roberto Silva, 45 anos</div>
                 </div>
                 <div class="desktop-testimonial-card">
-                    <p>"Probé varios medicamentos sin éxito. Con este método natural eliminé los parásitos de forma segura y efectiva. Lo recomiendo 100%."</p>
-                    <div class="desktop-testimonial-author">- Rosa Martínez, 52 años</div>
+                    <p>"As dicas exclusivas fizeram toda a diferença. Agora toco com uma expressividade que nem imaginava ser possível."</p>
+                    <div class="desktop-testimonial-author">- Marina Costa, 22 anos</div>
                 </div>
             </div>
         </div>
 
         <div style="background: #fef3c7; border: 2px solid #fbbf24; border-radius: 15px; padding: 30px; text-align: center; margin: 40px 0; color: #92400e;">
-            <h4 style="margin-bottom: 15px; font-size: 1.3rem;">⚠️ Signos de que puedes tener parásitos:</h4>
-            <p style="margin: 0; line-height: 1.6;">Fatiga inexplicable • Problemas digestivos • Alergias frecuentes • Insomnio • Dolores de cabeza • Cambios de humor • Antojos de azúcar • Pérdida o aumento de peso sin explicación</p>
+            <h4 style="margin-bottom: 15px; font-size: 1.3rem;">🎻 O que você vai aprender:</h4>
+            <p style="margin: 0; line-height: 1.6;">Postura e empunhadura • Técnica do arco • Afinação • Leitura de partitura • Escalas básicas • Dinâmica musical • Vibrato • Expressão e interpretação • Repertório clássico e popular</p>
         </div>
 
         <div class="desktop-guarantee">
-            <h4>🛡️ Garantía de Satisfacción Total</h4>
-            <p>30 días de garantía sin preguntas. Si no ves mejoras significativas en tu salud y bienestar, te devolvemos el 100% de tu inversión.</p>
+            <h4>🛡️ Garantia de 30 Dias</h4>
+            <p>Se você não ficar satisfeito com o curso ou não sentir evolução em sua técnica, devolvemos 100% do seu investimento sem perguntas.</p>
         </div>
 
         <div class="desktop-pricing-section">
-            <h3>Oferta Especial - Protocolo Completo</h3>
+            <h3>Oferta Especial - Curso Completo</h3>
             <div class="desktop-old-price">Valor regular: $197 USD</div>
             <div class="desktop-current-price">$47,00 USD</div>
-            <p style="font-size: 1.1rem; opacity: 0.9;">Protocolo completo • Guías PDF • Videos explicativos • Soporte incluido</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Acesso vitalício • Módulos em vídeo • Material didático • Suporte incluso</p>
         </div>
 
-        <div class="desktop-buttons-container">
-            <a href="https://go.perfectpay.com.br/PPU38CPTUQO?upsell=true" target="_blank" rel="noopener noreferrer" class="desktop-btn desktop-btn-accept">
-                🌿 SÍ, QUIERO DESPARASITARME NATURALMENTE
-            </a>
-        </div>
-        
-        <div style="text-align: center; margin: 20px 0;">
-            <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" style="color: #666; font-size: 16px; text-decoration: underline; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.color='#333'; this.style.textDecoration='none';" onmouseout="this.style.color='#666'; this.style.textDecoration='underline';">
-                No gracias, continuar sin el protocolo de desparasitación
-            </a>
+        <!-- Botões Kiwify Desktop -->
+        <div style="text-align:center">
+          <button id="kiwify-upsell-trigger-2az3kbH" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">¡SÍ! LO QUIERO.</button>
+          <div id="kiwify-upsell-cancel-trigger" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">rechazar, no quiero</div>
         </div>
 
         <div style="background: #fef2f2; border: 1px solid #fca5a5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.95rem; color: #991b1b;">
-            <strong>⚠️ Advertencia importante:</strong> Los parásitos pueden causar problemas de salud graves si no se tratan. Esta oferta especial de $47,00 tiene disponibilidad limitada. Una vez que cierres esta página, el precio volverá a $197,00 y podrías perder la oportunidad de limpiar tu organismo naturalmente.
+            <strong>⚠️ Atenção:</strong> Esta oferta especial de $47,00 é por tempo limitado. Assim que você sair desta página, o preço volta ao valor normal de $197,00. Não perca a chance de realizar seu sonho de tocar violino!
         </div>
     </div>
 </div>
 
-                  <script
-                src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js">
-                </script>
+<script> 
+let nextUpsellURL = "http://danaga.uhealthy.site/up4";
+let nextDownsellURL = "http://danaga.uhealthy.site/up4";
+</script>
+<script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 
-                <script>
-                new OcuExternal();
-                </script>
+<script
+src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js">
+</script>
+
+<script>
+new OcuExternal();
+</script>
             
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 
