@@ -105,7 +105,7 @@
 
     /* Estilos para desktop */
     #desktop-content {
-      background: linear-gradient(135deg, #16a34a 0%, #22c55e 50%, #15803d 100%);
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
       min-height: 100vh;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
@@ -127,22 +127,23 @@
     .desktop-header {
       text-align: center;
       padding: 40px 0;
-      border-bottom: 3px solid #f0f9ff;
+      border-bottom: 3px solid #f0f4ff;
       margin-bottom: 40px;
-      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
       border-radius: 15px;
+      color: white;
     }
 
     .desktop-header h1 {
-      color: #14532d;
+      color: #ffffff;
       font-size: 2.8rem;
       margin-bottom: 20px;
       font-weight: 800;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .desktop-subtitle {
-      color: #166534;
+      color: #e2e8f0;
       font-size: 1.3rem;
       max-width: 700px;
       margin: 0 auto;
@@ -153,7 +154,7 @@
       text-align: center;
       margin: 50px 0;
       padding: 40px;
-      background: linear-gradient(135deg, #22c55e 0%, #16a34a 50%, #15803d 100%);
+      background: linear-gradient(135deg, #1e40af 0%, #1d4ed8 50%, #1e3a8a 100%);
       border-radius: 20px;
       color: white;
     }
@@ -199,7 +200,7 @@
     }
 
     .desktop-feature-card h3 {
-      color: #14532d;
+      color: #1e3a8a;
       font-size: 1.4rem;
       margin-bottom: 15px;
       font-weight: 600;
@@ -211,7 +212,7 @@
     }
 
     .desktop-pricing-section {
-      background: linear-gradient(135deg, #059669 0%, #047857 100%);
+      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
       color: white;
       padding: 50px;
       border-radius: 20px;
@@ -296,14 +297,14 @@
     }
 
     .desktop-btn-accept {
-      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
       color: white;
-      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.4);
+      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.4);
     }
 
     .desktop-btn-accept:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(22, 163, 74, 0.6);
+      box-shadow: 0 15px 35px rgba(30, 64, 175, 0.6);
     }
 
     .desktop-testimonials {
@@ -313,7 +314,7 @@
     .desktop-testimonials h3 {
       text-align: center;
       font-size: 1.8rem;
-      color: #14532d;
+      color: #1e3a8a;
       margin-bottom: 30px;
     }
 
@@ -324,26 +325,26 @@
     }
 
     .desktop-testimonial-card {
-      background: #f0fdf4;
+      background: #f0f4ff;
       padding: 25px;
       border-radius: 12px;
-      border-left: 4px solid #22c55e;
+      border-left: 4px solid #3b82f6;
     }
 
     .desktop-testimonial-card p {
       font-style: italic;
-      color: #15803d;
+      color: #1e40af;
       margin-bottom: 15px;
     }
 
     .desktop-testimonial-author {
       font-weight: 600;
-      color: #14532d;
+      color: #1e3a8a;
     }
 
     .desktop-guarantee {
-      background: #f0fff4;
-      border: 2px solid #68d391;
+      background: #f0f4ff;
+      border: 2px solid #93c5fd;
       border-radius: 15px;
       padding: 30px;
       text-align: center;
@@ -351,13 +352,13 @@
     }
 
     .desktop-guarantee h4 {
-      color: #22543d;
+      color: #1e3a8a;
       font-size: 1.3rem;
       margin-bottom: 15px;
     }
 
     .desktop-guarantee p {
-      color: #2f855a;
+      color: #1e40af;
     }
 
     @media (max-width: 768px) {
@@ -556,16 +557,11 @@
 
     <div class="mobile-price-circle">$ 17,32</div>
 
-    <!-- Botões de aceitar e recusar -->
-    <a class="mobile-btn-accept" href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" target="_blank" rel="noopener noreferrer">
-      DESBLOQUEAR LOCALIZACIÓN AHORA
-    </a>
-    
-    <br><br>
-    
-    <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" style="display: inline-block; margin: 15px 10px; color: #666; font-size: 14px; text-decoration: underline; cursor: pointer; line-height: 1.4; max-width: 300px; text-align: center;" onmouseover="this.style.color='#333'; this.style.textDecoration='none';" onmouseout="this.style.color='#666'; this.style.textDecoration='underline';">
-      Rechazar esta oferta y continuar sin la función de localización
-    </a>
+    <!-- Botões com script Kiwify -->
+    <div style="text-align:center">
+      <button id="kiwify-upsell-trigger-qi40H41" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">DESBLOQUEAR LOCALIZACIÓN AHORA</button>
+      <div id="kiwify-upsell-cancel-trigger" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">Rechazar esta oferta y continuar sin la función de localización</div>
+    </div>
 
     <!-- AVISO DE REINTENTO -->
     <p style="font-size: 14px; color: #555; margin-top: 10px;">
@@ -579,6 +575,11 @@
     </div>
   </div>
 
+  <script> 
+    let nextUpsellURL = "https://danaga.uhealthy.site/up3/";
+    let nextDownsellURL = "https://danaga.uhealthy.site/up3/";
+  </script>
+  <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
   <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 </div>
 
@@ -586,94 +587,95 @@
 <div id="desktop-content">
     <div class="desktop-container">
         <div class="desktop-header">
-            <h1>🌿 Desparasitación Natural Completa</h1>
-            <p class="desktop-subtitle">Elimina parásitos de forma natural y segura con métodos probados por generaciones</p>
+            <h1>🎸 TRUCO DE L.WT.S.: Como Tocar Baixo</h1>
+            <p class="desktop-subtitle">Domine o baixo elétrico do zero com técnicas profissionais e repertório prático</p>
         </div>
 
         <div class="desktop-hero-section">
-            <h2>Limpia Tu Organismo Naturalmente</h2>
-            <p>Descubre el poder de las hierbas medicinales y remedios ancestrales para eliminar parásitos intestinales de forma efectiva y sin efectos secundarios</p>
+            <h2>Transforme Sua Paixão em Habilidade</h2>
+            <p>Aprenda a tocar baixo com um método testado que ensina desde fundamentos até técnicas avançadas, preparando você para tocar com confiança em qualquer situação</p>
         </div>
 
         <div class="desktop-features-grid">
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🌱</span>
-                <h3>100% Ingredientes Naturales</h3>
-                <p>Fórmulas basadas en hierbas medicinales como ajenjo, clavo, nogal negro y otras plantas con propiedades antiparasitarias comprobadas científicamente.</p>
+                <span class="desktop-feature-icon">🎯</span>
+                <h3>Fundamentos Sólidos</h3>
+                <p>Postura correta, afinação, digitação e técnicas de mão direita. Aprenda a base que todo baixista profissional precisa dominar.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🛡️</span>
-                <h3>Protocolo Completo</h3>
-                <p>Guía paso a paso de 30 días que incluye preparación, limpieza activa y mantenimiento para una desparasitación efectiva y duradera.</p>
+                <span class="desktop-feature-icon">🎵</span>
+                <h3>Teoria Musical Aplicada</h3>
+                <p>Entenda escalas, acordes, intervalos e harmonia de forma prática, aplicando diretamente no instrumento sem complicações.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">💊</span>
-                <h3>Sin Efectos Secundarios</h3>
-                <p>A diferencia de los medicamentos químicos, nuestro método natural no causa náuseas, dolor de cabeza ni daña la flora intestinal beneficiosa.</p>
+                <span class="desktop-feature-icon">🔥</span>
+                <h3>Técnicas Profissionais</h3>
+                <p>Slap, tapping, walking bass, grooves complexos e muito mais. Desenvolva o repertório técnico de um baixista completo.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">📋</span>
-                <h3>Lista de Síntomas</h3>
-                <p>Aprende a identificar los signos de infección parasitaria: fatiga, problemas digestivos, alergias, insomnio y muchos otros síntomas.</p>
+                <span class="desktop-feature-icon">🎤</span>
+                <h3>Repertório Diversificado</h3>
+                <p>Rock, blues, funk, pop, jazz e música brasileira. Toque os sucessos que você sempre quis com linhas autênticas.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">🥗</span>
-                <h3>Plan Nutricional</h3>
-                <p>Dieta específica que potencia la eliminación de parásitos y fortalece el sistema inmunológico durante todo el proceso de limpieza.</p>
+                <span class="desktop-feature-icon">👥</span>
+                <h3>Prática em Grupo</h3>
+                <p>Aprenda a tocar com outros músicos, desenvolva timing, comunicação musical e presença de palco.</p>
             </div>
             <div class="desktop-feature-card">
-                <span class="desktop-feature-icon">👨‍⚕️</span>
-                <h3>Respaldado Científicamente</h3>
-                <p>Métodos validados por estudios científicos y utilizados exitosamente por naturópatas y profesionales de medicina alternativa.</p>
+                <span class="desktop-feature-icon">🎨</span>
+                <h3>Criação de Linhas</h3>
+                <p>Desenvolva sua criatividade musical criando suas próprias linhas de baixo originais e marcantes.</p>
             </div>
         </div>
 
         <div class="desktop-testimonials">
-            <h3>Testimonios Reales de Nuestros Usuarios</h3>
+            <h3>Depoimentos de Alunos que Transformaram sua Música</h3>
             <div class="desktop-testimonial-grid">
                 <div class="desktop-testimonial-card">
-                    <p>"Después de años de problemas digestivos, finalmente encontré la solución. En 30 días me sentí como nueva, con más energía que nunca."</p>
-                    <div class="desktop-testimonial-author">- Carmen López, 45 años</div>
+                    <p>"Em 3 meses já estava tocando com minha banda. O método é incrível, aprendi mais rápido do que imaginava ser possível."</p>
+                    <div class="desktop-testimonial-author">- Carlos Silva, 28 anos</div>
                 </div>
                 <div class="desktop-testimonial-card">
-                    <p>"Mi doctor no encontraba la causa de mi fatiga crónica. Este protocolo natural me devolvió la vida. Resultados increíbles sin químicos."</p>
-                    <div class="desktop-testimonial-author">- Miguel Santos, 38 años</div>
+                    <p>"Nunca toquei um instrumento na vida e hoje toco baixo profissionalmente. O curso mudou minha vida musical completamente."</p>
+                    <div class="desktop-testimonial-author">- Ana Rodrigues, 35 anos</div>
                 </div>
                 <div class="desktop-testimonial-card">
-                    <p>"Probé varios medicamentos sin éxito. Con este método natural eliminé los parásitos de forma segura y efectiva. Lo recomiendo 100%."</p>
-                    <div class="desktop-testimonial-author">- Rosa Martínez, 52 años</div>
+                    <p>"Tocava há anos mas estava estagnado. Com as técnicas do curso, meu nível melhorou absurdamente em poucas semanas."</p>
+                    <div class="desktop-testimonial-author">- Roberto Lima, 42 anos</div>
                 </div>
             </div>
         </div>
 
-        <div style="background: #fef3c7; border: 2px solid #fbbf24; border-radius: 15px; padding: 30px; text-align: center; margin: 40px 0; color: #92400e;">
-            <h4 style="margin-bottom: 15px; font-size: 1.3rem;">⚠️ Signos de que puedes tener parásitos:</h4>
-            <p style="margin: 0; line-height: 1.6;">Fatiga inexplicable • Problemas digestivos • Alergias frecuentes • Insomnio • Dolores de cabeza • Cambios de humor • Antojos de azúcar • Pérdida o aumento de peso sin explicación</p>
+        <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 15px; padding: 30px; text-align: center; margin: 40px 0; color: #856404;">
+            <h4 style="margin-bottom: 15px; font-size: 1.3rem;">🎸 O que você vai aprender:</h4>
+            <p style="margin: 0; line-height: 1.6;">Postura e técnica • Leitura musical • Escalas e acordes • Grooves e ritmos • Slap e técnicas avançadas • Repertório completo • Improvisação • Criação de linhas • Prática em conjunto</p>
         </div>
 
         <div class="desktop-guarantee">
-            <h4>🛡️ Garantía de Satisfacción Total</h4>
-            <p>30 días de garantía sin preguntas. Si no ves mejoras significativas en tu salud y bienestar, te devolvemos el 100% de tu inversión.</p>
+            <h4>🛡️ Garantia Incondicional de 30 Dias</h4>
+            <p>Se você não ficar 100% satisfeito com o curso ou não ver evolução significativa no seu baixo, devolvemos todo seu investimento sem questionamentos.</p>
         </div>
 
         <div class="desktop-pricing-section">
-            <h3>Oferta Especial - Protocolo Completo</h3>
+            <h3>Oferta Especial - Curso Completo</h3>
             <div class="desktop-old-price">Valor regular: $197 USD</div>
             <div class="desktop-current-price">$17,32 USD</div>
-            <p style="font-size: 1.1rem; opacity: 0.9;">Protocolo completo • Guías PDF • Videos explicativos • Soporte incluido</p>
+            <p style="font-size: 1.1rem; opacity: 0.9;">Curso completo • Videoaulas HD • Partituras • Backing tracks • Suporte direto</p>
         </div>
 
         <div class="desktop-buttons-container">
-            <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=yes" target="_blank" rel="noopener noreferrer" class="desktop-btn desktop-btn-accept">
-                🌿 SÍ, QUIERO DESPARASITARME NATURALMENTE
-            </a>
-        </div>
-        
-        <div style="text-align: center; margin: 20px 0;">
-            <a href="https://boasalud.mycartpanda.com/ex-ocu/next-offer/69YNaedVX7?accepted=no" style="color: #666; font-size: 16px; text-decoration: underline; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.color='#333'; this.style.textDecoration='none';" onmouseout="this.style.color='#666'; this.style.textDecoration='underline';">
-                No gracias, continuar sin el protocolo de desparasitación
-            </a>
+            <div style="text-align:center">
+              <button id="kiwify-upsell-trigger-qi40H41" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">🎸 SÍ! QUIERO APRENDER A TOCAR BAJO</button>
+              <div id="kiwify-upsell-cancel-trigger" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No gracias, continuar sin el curso de bajo</div>
+            </div>
         </div>
 
         <div style="background: #fef2f2; border: 1px solid #fca5a5; border-radius: 12px; padding: 20px; margin: 30px 0; font-size: 0.95rem; color: #991b1b;">
-            <strong>⚠️ Advertencia importante:</strong> Los parásitos pueden causar problemas de salud graves si no se tratan. Esta oferta especial de $17,32 tiene disponibil
+            <strong>⚠️ Atenção:</strong> Esta oferta especial de $17,32 tem disponibilidade limitada. Após o fechamento desta página, o valor retorna ao preço normal de $197. Não perca esta oportunidade única de transformar sua música!
+        </div>
+    </div>
+
+    <script> 
+      let nextUpsellURL = "https://danaga.uhealthy.site/up3/";
+      let nextDownsellURL = "https://danaga.uhealthy.site/up3/";
