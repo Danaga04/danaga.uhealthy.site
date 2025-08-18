@@ -1,270 +1,668 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>¡FELICIDADES! — Desbloquear Historial + Status Secreto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Truco del Protocolo Secreto</title>
   <style>
-    :root{
-      --accent:#1fa61f;
-      --accent-dark:#167a13;
-      --danger:#d32f2f;
-      --bg:#ffffff;
-      --text:#222;
-      --muted:#6b7280;
-      --card:#fafafa;
-      --radius:12px;
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: "Inter", Arial, Helvetica, sans-serif;
-      background:linear-gradient(180deg,#fff 0%, #f7f9fb 100%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding-bottom:40px;
+    
+    /* Esconder ambos os conteúdos inicialmente */
+    #mobile-content, #desktop-content {
+      display: none;
     }
-
-    .top-banner{
-      background:var(--danger);
-      color:white;
-      text-align:center;
-      padding:12px 10px;
-      font-weight:700;
-      font-size:15px;
+    
+    /* Estilos para mobile */
+    .mobile-btn-aceitar {
+      display: inline-block;
+      padding: 20px 40px;
+      margin: 20px 10px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+      color: white;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: pulse 2s infinite;
+      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      min-width: 280px;
     }
-
-    .wrap{
-      max-width:820px;
-      margin:20px auto;
-      padding:20px;
+    
+    .mobile-btn-aceitar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(40, 167, 69, 0.6);
     }
-
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      box-shadow:0 8px 30px rgba(20,20,40,0.06);
-      padding:26px;
-      text-align:center;
+    
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.8), 0 0 0 15px rgba(40, 167, 69, 0.1);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      }
     }
-
-    .logo{
-      max-width:180px;
-      display:block;
-      margin:0 auto 8px;
+    
+    .mobile-link-recusar {
+      display: inline-block;
+      margin: 15px 10px;
+      color: #666;
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      line-height: 1.4;
+      max-width: 300px;
+      text-align: center;
     }
-
-    h1{
-      margin:10px 0 6px;
-      font-size:28px;
-      letter-spacing:0.2px;
-    }
-    h2{
-      margin:6px 0 18px;
-      font-size:18px;
-      color:var(--muted);
-      font-weight:600;
-    }
-
-    .progress-wrap{
-      margin:18px auto;
-      max-width:640px;
-    }
-    .progress-track{
-      background:#eee;
-      height:18px;
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .progress-bar{
-      height:18px;
-      width:0%;
-      background:linear-gradient(90deg,var(--accent) 0%, var(--accent-dark) 100%);
-      border-radius:999px;
-      transition:width 1.2s cubic-bezier(.2,.9,.2,1);
-      box-shadow:0 4px 12px rgba(31,166,31,0.12);
-    }
-    .progress-label{
-      display:flex;
-      justify-content:space-between;
-      font-size:13px;
-      color:var(--muted);
-      margin-top:8px;
-      padding:0 4px;
+    
+    .mobile-link-recusar:hover {
+      color: #333;
+      text-decoration: none;
     }
 
-    .features{
-      text-align:left;
-      margin-top:20px;
-      line-height:1.45;
-      color:var(--text);
-      font-size:15px;
-    }
-    .features ul{
-      padding-left:18px;
-      margin:10px 0 0;
-    }
-    .features li{
-      margin:10px 0;
-    }
-    .price{
-      font-size:30px;
-      font-weight:800;
-      color:var(--accent-dark);
-      margin:20px 0 8px;
+    /* Estilos para desktop */
+    * {
+      box-sizing: border-box;
     }
 
-    .cta{
-      display:inline-block;
-      background:linear-gradient(180deg,#ff7a00,#cc5500);
-      color:#fff;
-      padding:14px 22px;
-      font-size:16px;
-      font-weight:700;
-      border-radius:12px;
-      text-decoration:none;
-      box-shadow:0 10px 30px rgba(204,85,0,0.18);
-      transform:translateY(0);
-      transition:transform .15s ease, box-shadow .15s ease;
-    }
-    .cta:active{ transform:translateY(1px) }
-    .cta.pulse {
-      animation: pulse 1.8s infinite;
-    }
-    @keyframes pulse{
-      0%{ box-shadow:0 6px 22px rgba(255,122,0,0.18) }
-      50%{ box-shadow:0 18px 46px rgba(255,122,0,0.12) ; transform:translateY(-2px) }
-      100%{ box-shadow:0 6px 22px rgba(255,122,0,0.18) }
+    .desktop-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px;
+      background: white;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+      margin-top: 30px;
+      margin-bottom: 30px;
+      border-radius: 20px;
     }
 
-    .note{
-      margin-top:16px;
-      color:var(--muted);
-      font-size:13px;
+    .desktop-header {
+      text-align: center;
+      padding: 40px 0;
+      border-bottom: 3px solid #27AF60;
+      margin-bottom: 40px;
+      background: linear-gradient(135deg, #27AF60 0%, #20c997 100%);
+      border-radius: 15px;
+      color: white;
+      box-shadow: 0 10px 30px rgba(39, 175, 96, 0.3);
     }
 
-    .faq{
-      text-align:left;
-      margin-top:24px;
-      border-top:1px dashed #e6e6e6;
-      padding-top:18px;
-    }
-    .faq h3{
-      margin:0 0 6px;
-      font-size:17px;
-    }
-    .faq .q{
-      color:var(--accent-dark);
-      font-weight:700;
-      margin-top:12px;
-    }
-    .faq .a{ color:#333; margin-top:6px; font-size:14px; line-height:1.5 }
-
-    .small{
-      font-size:13px;
-      color:var(--muted);
-      margin-top:8px;
+    .desktop-header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      font-weight: 800;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
-    footer{ text-align:center; margin-top:20px; font-size:12px; color:var(--muted) }
-
-    /* responsive */
-    @media (max-width:520px){
-      .wrap{ padding:12px }
-      h1{ font-size:22px }
-      .price{ font-size:26px }
-      .cta{ width:100% }
+    .subtitle {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.95;
     }
 
+    .content-section {
+      margin-bottom: 35px;
+      padding: 25px;
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 15px;
+      border-left: 6px solid #27AF60;
+    }
+
+    .content-section h2 {
+      color: #2c3e50;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .content-section p {
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .feature-item {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      padding: 30px;
+      border-radius: 15px;
+      border: 2px solid #27AF60;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #27AF60, #20c997);
+    }
+
+    .feature-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(39, 175, 96, 0.2);
+      border-color: #20c997;
+    }
+
+    .feature-item h3 {
+      color: #27AF60;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .feature-item p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .price-section {
+      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      color: white;
+      padding: 45px;
+      border-radius: 20px;
+      text-align: center;
+      margin: 40px 0;
+      box-shadow: 0 15px 40px rgba(44, 62, 80, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+    }
+
+    .price-section h3 {
+      font-size: 2rem;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #bdc3c7;
+      font-size: 1.4rem;
+    }
+
+    .current-price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: #f39c12;
+      margin: 20px 0;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .desktop-btn {
+      padding: 20px 40px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      transition: all 0.4s ease;
+      min-width: 250px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .desktop-btn.btn-accept {
+      background: linear-gradient(135deg, #27AF60 0%, #20c997 100%);
+      color: white;
+      box-shadow: 0 8px 25px rgba(39, 175, 96, 0.4);
+    }
+
+    .desktop-btn.btn-accept:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(39, 175, 96, 0.6);
+    }
+
+    .desktop-btn.btn-decline {
+      background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+      color: white;
+      box-shadow: 0 8px 25px rgba(149, 165, 166, 0.4);
+    }
+
+    .desktop-btn.btn-decline:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(149, 165, 166, 0.6);
+    }
+
+    .disclaimer {
+      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+      border: 2px solid #f39c12;
+      border-radius: 12px;
+      padding: 25px;
+      margin: 35px 0;
+      font-size: 0.95rem;
+      color: #856404;
+      line-height: 1.6;
+      box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+      border: 2px solid #28a745;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(40, 167, 69, 0.2);
+    }
+
+    .highlight-box h4 {
+      color: #155724;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .highlight-box p {
+      color: #155724;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 20px;
+      margin: 40px 0;
+      text-align: center;
+    }
+
+    .testimonial-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .testimonial {
+      font-style: italic;
+      font-size: 1.1rem;
+      margin: 20px 0;
+      padding: 20px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+    }
+
+    /* Estilos globais para desktop */
+    #desktop-content {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      padding: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-container {
+        margin: 10px;
+        padding: 20px;
+      }
+
+      .desktop-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .buttons-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .desktop-btn {
+        min-width: 100%;
+      }
+    }
+
+    .faq-section {
+      margin: 30px 0;
+    }
+
+    .faq-item {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 10px;
+      margin: 15px 0;
+      padding: 20px;
+      border-left: 4px solid #27AF60;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      color: #2c3e50;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .faq-answer {
+      color: #555;
+      font-size: 14px;
+      line-height: 1.6;
+    }
   </style>
+  <script>
+    // Variável global para travar a decisão inicial
+    let contentTypeDecided = false;
+    let isRealMobileDevice = false;
+    
+    function isRealMobile() {
+      // DETECÇÃO INTELIGENTE - Rigorosa com emuladores, permissiva com mobiles reais
+      
+      // 1. Informações básicas da tela
+      const realScreenWidth = screen.width;
+      const realScreenHeight = screen.height;
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+      const userAgent = navigator.userAgent.toLowerCase();
+      
+      // 2. User Agent - verificação básica
+      const mobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
+      
+      // 3. Características REAIS de mobile
+      const hasTouchScreen = ('ontouchstart' in window) && (navigator.maxTouchPoints > 0);
+      const hasOrientationAPI = ('orientation' in window);
+      const hasMotionAPI = ('DeviceMotionEvent' in window);
+      
+      // 4. Verificar se é um DESKTOP muito óbvio
+      const isObviousDesktop = realScreenWidth >= 1366 && realScreenHeight >= 768;
+      const isTooWideForMobile = realScreenWidth > 1024;
+      
+      // 5. Detectar EMULADOR (viewport muito diferente da tela real)
+      const viewportDiffWidth = Math.abs(viewportWidth - realScreenWidth);
+      const viewportDiffHeight = Math.abs(viewportHeight - realScreenHeight);
+      const isLikelyEmulator = (viewportDiffWidth > 100 || viewportDiffHeight > 150) && isObviousDesktop;
+      
+      // 6. Detectar mouse (desktop indicator)
+      const hasMouseCapability = matchMedia('(any-hover: hover)').matches;
+      
+      // 7. Verificar se é Chrome desktop simulando
+      const isChromeDesktop = userAgent.includes('chrome') && 
+                             (userAgent.includes('windows') || userAgent.includes('macintosh') || userAgent.includes('linux')) && 
+                             !userAgent.includes('mobile');
+      
+      // 8. Tamanho típico de mobile
+      const maxDimension = Math.max(realScreenWidth, realScreenHeight);
+      const minDimension = Math.min(realScreenWidth, realScreenHeight);
+      const isMobileSize = maxDimension <= 1024 && minDimension <= 768;
+      
+      // LÓGICA SIMPLIFICADA E MAIS PERMISSIVA:
+      
+      // Se tem características óbvias de DESKTOP = bloqueia
+      if (isObviousDesktop && hasMouseCapability && !hasTouchScreen) {
+        return false; // Desktop claro
+      }
+      
+      // Se é emulador óbvio = bloqueia  
+      if (isLikelyEmulator && isChromeDesktop) {
+        return false; // Emulador detectado
+      }
+      
+      // Se tem User Agent mobile E (touch OU tamanho mobile) = permite
+      if (mobileUA && (hasTouchScreen || isMobileSize)) {
+        return true; // Mobile real ou muito provável
+      }
+      
+      // Se tem tamanho mobile E touch = permite (mesmo sem UA mobile)
+      if (isMobileSize && hasTouchScreen && hasOrientationAPI) {
+        return true; // Mobile sem UA mobile (raro mas possível)
+      }
+      
+      // Se tela pequena E viewport pequeno = provavelmente mobile
+      if (realScreenWidth <= 768 && viewportWidth <= 768) {
+        return true; // Mobile com tela pequena
+      }
+      
+      // Caso padrão: desktop
+      return false;
+    }
+    
+    function forceDesktopView() {
+      document.getElementById("desktop-content").style.display = "block";
+      document.getElementById("mobile-content").style.display = "none";
+      contentTypeDecided = true;
+      isRealMobileDevice = false;
+    }
+    
+    function forceMobileView() {
+      document.getElementById("mobile-content").style.display = "block";
+      document.getElementById("desktop-content").style.display = "none";
+      contentTypeDecided = true;
+      isRealMobileDevice = true;
+    }
+    
+    function showContent() {
+      // Se já decidiu, não muda mais (TRAVA A DECISÃO)
+      if (contentTypeDecided) {
+        return;
+      }
+      
+      // Faz a verificação UMA VEZ só
+      if (isRealMobile()) {
+        forceMobileView();
+      } else {
+        forceDesktopView();
+      }
+    }
+    
+    // Detecta DevTools sendo aberto APÓS a decisão inicial (mais permissivo)
+    function detectDevToolsAfterLoad() {
+      // Só força desktop se detectar DevTools E for tela grande
+      const threshold = 200; // Mais permissivo
+      const isDevToolsOpen = (window.outerHeight - window.innerHeight > threshold) ||
+                            (window.outerWidth - window.innerWidth > threshold);
+      
+      const hasDesktopScreen = screen.width >= 1366;
+      
+      if (isDevToolsOpen && isRealMobileDevice && hasDesktopScreen) {
+        // Só força desktop se for tela de desktop COM DevTools
+        forceDesktopView();
+      }
+    }
+    
+    // Executa APENAS quando a página carrega
+    window.addEventListener('load', () => {
+      showContent();
+      
+      // Monitora DevTools de forma mais permissiva
+      setInterval(detectDevToolsAfterLoad, 2000);
+    });
+    
+    // Proteções leves mantidas
+    document.addEventListener('keydown', (e) => {
+      // Só bloqueia se for desktop óbvio
+      if (screen.width >= 1366 && 
+          (e.keyCode === 123 || 
+           (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+           (e.ctrlKey && e.keyCode === 85))) {
+        e.preventDefault();
+        return false;
+      }
+    });
+    
+    document.addEventListener('contextmenu', (e) => {
+      // Só bloqueia right-click em desktop
+      if (screen.width >= 1366) {
+        e.preventDefault();
+        return false;
+      }
+    });
+    
+    // Console clear mais espaçado
+    if (typeof console !== 'undefined') {
+      setInterval(() => {
+        console.clear();
+      }, 10000); // 10 segundos
+    }
+  </script>
 </head>
 <body>
-  <div class="top-banner">¡NO ABANDONES ESTA PÁGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA! SU ACCESO SERÁ LIBERADO DESPUÉS DE LOS PASOS.</div>
 
-  <main class="wrap">
-    <section class="card" aria-labelledby="title">
-      <!-- opcional: trocar o src da imagem pelo logo que você usa -->
-      <img class="logo" src="https://i.postimg.cc/s2hWrVKw/What-Spy-Logo-PNG-WEBP.webp" alt="SPYY APP - Logo">
+<!-- CONTEÚDO PARA MOBILE -->
+<div id="mobile-content">
+  <div class="top-banner" style="background:#27AF60;color:white;font-weight:bold;padding:10px;font-size:16px;text-align:center;">
+    ¡NO ABANDONES ESTA PÁGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA! SU ACCESO SERÁ LIBERADO DESPUÉS DE LOS PASOS.
+  </div>
+  <div style="padding:40px 20px;max-width:600px;margin:0 auto;text-align:center">
+    <img src="https://analisohoje.site/wp-content/uploads/2024/09/removal.ai_30a5e5ca-fd0b-4fef-86cc-b04b0151087f-pmefoowzsyeznu-1ngraza.png" alt="Protocolo Secreto" style="max-width:200px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+    
+    <h2 style="color:#2c3e50;font-size:24px;margin:20px 0;font-weight:800;">¡FELICIDADES!!</h2>
+    <h3 style="color:#27AF60;font-size:20px;margin:15px 0;font-weight:600;"><strong>Casi accediendo a la aplicación</strong></h3>
+    
+    <div style="background:#ecf0f1;border-radius:15px;height:20px;width:100%;margin:20px auto;overflow:hidden;">
+      <div style="background:linear-gradient(90deg,#27AF60,#20c997);height:20px;width:60%;border-radius:15px;animation:progress 2s ease-out;"></div>
+    </div>
+    <p style="color:#27AF60;font-weight:bold;margin:10px 0;">Progreso <strong>60%</strong></p>
+    
+    <style>
+      @keyframes progress {
+        from { width: 0%; }
+        to { width: 60%; }
+      }
+    </style>
+    
+    <div style="background:linear-gradient(135deg,#d4edda,#c3e6cb);border:2px solid #28a745;border-radius:15px;padding:20px;margin:25px 0;">
+      <p style="color:#155724;font-weight:700;font-size:16px;margin:0;"><strong>¡ACCEDE AL HISTORIAL COMPLETO DE LLAMADAS + VISUALIZACIÓN SECRETA DE STATUS!</strong></p>
+    </div>
+    
+    <p style="color:#2c3e50;font-size:15px;line-height:1.6;margin:20px 0;"><strong>¿Quieres saber TODA la verdad sobre tu pareja? Con nuestra función premium 2 en 1 puedes:</strong></p>
+    
+    <div style="background:linear-gradient(135deg,#f8f9fa,#e9ecef);border-radius:10px;padding:15px;margin:20px 0;text-align:left;">
+      <ul style="margin:0;padding-left:20px;color:#555;font-size:14px;line-height:1.6;">
+        <li style="margin:8px 0;"><strong>📞 HISTORIAL COMPLETO DE LLAMADAS:</strong> Todas las llamadas entrantes y salientes, duración exacta. Historial de hasta 12 meses.</li>
+        <li style="margin:8px 0;"><strong>👁️ VISUALIZACIÓN SECRETA DE STATUS:</strong> Ver todos los status SIN aparecer en 'visto', descargar fotos y videos secretamente y ver status de 'mejores amigos'.</li>
+      </ul>
+    </div>
 
-      <h1 id="title">¡FELICIDADES!!</h1>
-      <h2>Casi accediendo a la aplicación</h2>
+    <p style="color:#2c3e50;font-size:14px;line-height:1.5;margin:15px 0;">¡Descubre la verdad completa! El 89% de nuestros usuarios encontraron información crucial combinando llamadas y status.</p>
+    
+    <div style="background:linear-gradient(135deg,#2c3e50,#34495e);color:white;border-radius:15px;padding:20px;margin:25px 0;">
+      <div style="font-size:36px;color:#f39c12;font-weight:900;margin:10px 0;text-shadow:2px 2px 4px rgba(0,0,0,0.5);"><strong>$ 23,97</strong></div>
+    </div>
+    
+    <div style="text-align:center">
+      <button id="kiwify-upsell-trigger-kdIiDXL" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">¡SÍ! LO QUIERO.</button>
+      <div id="kiwify-upsell-cancel-trigger" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">NO QUIERO, GRACIAS</div>
+    </div>
 
-      <div class="progress-wrap" aria-hidden="false">
-        <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="60">
-          <div class="progress-bar" id="progressBar" style="width:0%"></div>
-        </div>
-        <div class="progress-label">
-          <span>Progreso</span>
-          <strong>60%</strong>
-        </div>
+    <div style="background:#fff3cd;border:2px solid #f39c12;border-radius:10px;padding:15px;margin:25px 0;">
+      <p style="font-size:13px;color:#856404;margin:0;line-height:1.4;">
+        Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!
+      </p>
+    </div>
+
+    <div class="faq-section">
+      <h4 style="color:#2c3e50;font-size:18px;font-weight:700;margin:25px 0 15px 0;">PREGUNTAS FRECUENTES</h4>
+      
+      <div class="faq-item">
+        <div class="faq-question">↩ ¿Por qué el 91% elige esta combinación?</div>
+        <div class="faq-answer">Las llamadas revelan <strong>CON QUIÉN</strong> habla, y los status revelan <strong>QUÉ ESTÁ HACIENDO</strong>. Tu pareja puede borrar chats, pero raramente piensa en el historial de llamadas y nunca sospecha que ves sus status secretamente. ¡Es la combinación perfecta para descubrir toda la verdad!</div>
       </div>
+      
+      <div class="faq-item">
+        <div class="faq-question">↩ ¿Puedo ver status que ya eliminó?</div>
+        <div class="faq-answer"><strong>¡SÍ!</strong> Nuestro sistema guarda automáticamente todos los status durante <strong>30 días</strong>, incluso los que tu pareja elimina en segundos. ¡Nada se escapa!</div>
+      </div>
+    </div>
 
-      <p style="margin-top:14px;font-weight:700;">¡ACCEDE AL HISTORIAL COMPLETO DE LLAMADAS + VISUALIZACIÓN SECRETA DE STATUS!</p>
+    <p style="color:#666;font-size:12px;margin:20px 0;">¿Dudas? Contacta con soporte desde tu panel después de la compra.</p>
+  </div>
+</div>
 
-      <div class="features">
-        <p style="font-weight:700;">¿Quieres saber TODA la verdad sobre tu pareja? Con nuestra función premium 2 en 1 puedes:</p>
-
-        <ul>
-          <li>📞 <strong>HISTORIAL COMPLETO DE LLAMADAS:</strong> Todas las llamadas entrantes y salientes, duración exacta. Historial de hasta 12 meses.</li>
-          <li>👁️ <strong>VISUALIZACIÓN SECRETA DE STATUS:</strong> Ver todos los status SIN aparecer en 'visto', descargar fotos y videos secretamente y ver status de 'mejores amigos'.</li>
-        </ul>
-
-        <p class="small" style="margin-top:10px;">¡Descubre la verdad completa! El 89% de nuestros usuarios encontraron información crucial combinando llamadas y status.</p>
-
-        <div style="margin-top:18px;">
-          <div class="price" aria-hidden="true">$ 23,97</div>
-          <!-- HOTMART - Sales Funnel Widget -->
-<!--- sales funnel container --->
-<div id="hotmart-sales-funnel"></div>
-
-<!--- script load and setup --->
-<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-<script>
-checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-</script>
-<!-- HOTMART - Sales Funnel Widget -->
-
-          <p class="note">Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!</p>
+<!-- CONTEÚDO PARA DESKTOP -->
+<div id="desktop-content">
+    <div class="desktop-container">
+        <div class="desktop-header">
+            <h1>🥪 Programa AR - Alfajores Artesanais Premium</h1>
+            <p class="subtitle">Descubra os segredos para criar os alfajores mais macios e saborosos! Aprenda técnicas profissionais para produzir biscoitinhos de maizena recheados com doce de leite e cobertos com açúcar de confeiteiro.</p>
         </div>
-      </div>
 
-      <div class="faq" aria-label="Preguntas frecuentes">
-        <h3>PREGUNTAS FRECUENTES</h3>
+        <div class="content-section">
+            <h2>🍪 O Que São Os Alfajores?</h2>
+            <p>Alfajores são biscoitinhos de maizena super macios, tradicionalmente recheados com doce de leite e delicadamente cobertos com açúcar de confeiteiro. Um doce tradicional tipicamente feito de farinha, mel e nozes, encontrado na Argentina, Paraguai, Sul do Brasil, Sul da França, Espanha, Uruguai, Peru, Equador, Colômbia e Chile.</p>
+            <p>No Programa AR, você aprenderá todas as técnicas artesanais para criar alfajores perfeitos, com a textura ideal e sabores autênticos que conquistarão qualquer paladar.</p>
+        </div>
 
-        <div class="q">↩ ¿Por qué el 91% elige esta combinación?</div>
-        <div class="a">Las llamadas revelan <strong>CON QUIÉN</strong> habla, y los status revelan <strong>QUÉ ESTÁ HACIENDO</strong>. Tu pareja puede borrar chats, pero raramente piensa en el historial de llamadas y nunca sospecha que ves sus status secretamente. ¡Es la combinación perfecta para descubrir toda la verdad!</div>
+        <div class="testimonial-section">
+            <h3>💬 O Que Dizem Nossos Alunos</h3>
+            <div class="testimonial">
+                "Em apenas 2 semanas já estava vendendo meus alfajores! A receita é incrível e o passo a passo é muito claro." - Maria Silva, Confeiteira
+            </div>
+            <div class="testimonial">
+                "Finalmente encontrei a receita perfeita. Meus alfajores ficam sempre macios e saborosos. Recomendo!" - João Santos, Empreendedor
+            </div>
+        </div>
 
-        <div class="q">↩ ¿Puedo ver status que ya eliminó?</div>
-        <div class="a">¡SÍ! Nuestro sistema guarda automáticamente todos los status durante <strong>30 días</strong>, incluso los que tu pareja elimina en segundos. ¡Nada se escapa!</div>
-      </div>
+        <div class="highlight-box">
+            <h4>🎯 RECEITAS AUTÊNTICAS E TESTADAS</h4>
+            <p>Todas as receitas foram desenvolvidas e testadas por confeiteiros profissionais, garantindo resultados consistentes e sabores excepcionais em cada alfajor.</p>
+        </div>
 
-      <footer>
-        <small>¿Dudas? Contacta con soporte desde tu panel después de la compra.</small>
-      </footer>
-    </section>
-  </main>
-
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-
-  <script>
-    // anima a barra até 60% (substitua se quiser outro valor)
-    (function(){
-      const bar = document.getElementById('progressBar');
-      setTimeout(()=>{ bar.style.width = '60%'; }, 150);
-
-      // acessibilidade: atualiza aria-valuenow
-      const track = document.querySelector('.progress-track');
-      if (track) track.setAttribute('aria-valuenow','60');
-
-      // se quiser trocar link do botão dinamicamente, edite abaixo:
-      // document.getElementById('ctaButton').href = 'https://go.perfectpay.com.br/SEU_LINK';
-    })();
-  </script>
-</body>
-</html>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>🥄 Receitas Tradicionais</h3>
+                <p>Aprenda as receitas originais dos alfajores argentinos e brasileiros, com ingredientes facilmente encontrados e técnicas simples de executar.</p>
+            </div>
+            <div class="feature-item">
+                <h3>🍯 Recheios Especiais</h3>
+                <p>Domine diferentes tipos de recheios: doce de leite tradicional, doce de leite com coco, brigadeiro e outras variações irresistíveis.</p>
+            </div>
+            <div class="feature-item">
+                <h3>✨ Técnicas de Cobertura</h3>
+                <p>Aprenda as melhores técnicas para cobrir seus alfajores: açúcar de confeiteiro, chocolate, coco ralado e outras opções deliciosas.</p>
+            </div>
+            <div class="feature-item">
+                <h3>📏 Consistência Perfeita</h3>
