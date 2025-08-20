@@ -1,654 +1,163 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>El Truco del Protocolo Secreto</title>
+  <title>SPYY APP - Aceso</title>
   <style>
     body {
+      font-family: Arial, sans-serif;
+      background: #fff;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      text-align: center;
     }
-    
-    /* Esconder ambos os conteúdos inicialmente */
-    #mobile-content, #desktop-content {
-      display: none;
-    }
-    
-    /* Estilos para mobile */
-    .mobile-btn-aceitar {
-      display: inline-block;
-      padding: 20px 40px;
-      margin: 20px 10px;
-      text-decoration: none;
-      border-radius: 12px;
+
+    .top-banner {
+      background: red;
+      color: white;
       font-weight: bold;
-      font-size: 18px;
-      text-align: center;
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-      color: white;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      animation: pulse 2s infinite;
-      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      min-width: 280px;
-    }
-    
-    .mobile-btn-aceitar:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(40, 167, 69, 0.6);
-    }
-    
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-      }
-      50% {
-        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.8), 0 0 0 15px rgba(40, 167, 69, 0.1);
-        transform: scale(1.02);
-      }
-      100% {
-        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-      }
-    }
-    
-    .mobile-link-recusar {
-      display: inline-block;
-      margin: 15px 10px;
-      color: #666;
-      font-size: 14px;
-      text-decoration: underline;
-      cursor: pointer;
-      transition: color 0.3s ease;
-      line-height: 1.4;
-      max-width: 300px;
-      text-align: center;
-    }
-    
-    .mobile-link-recusar:hover {
-      color: #333;
-      text-decoration: none;
+      padding: 10px;
+      font-size: 16px;
     }
 
-    /* Estilos para desktop */
-    * {
-      box-sizing: border-box;
-    }
-
-    .desktop-container {
-      max-width: 1000px;
+    .container {
+      padding: 40px 20px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 30px;
-      background: white;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-      margin-top: 30px;
-      margin-bottom: 30px;
-      border-radius: 20px;
     }
 
-    .desktop-header {
-      text-align: center;
-      padding: 40px 0;
-      border-bottom: 3px solid #27AF60;
-      margin-bottom: 40px;
-      background: linear-gradient(135deg, #27AF60 0%, #20c997 100%);
-      border-radius: 15px;
-      color: white;
-      box-shadow: 0 10px 30px rgba(39, 175, 96, 0.3);
+    .logo {
+      max-width: 200px;
     }
 
-    .desktop-header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 20px;
-      font-weight: 800;
-      line-height: 1.2;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .subtitle {
-      font-size: 1.3rem;
-      max-width: 800px;
-      margin: 0 auto;
-      line-height: 1.6;
-      opacity: 0.95;
-    }
-
-    .content-section {
-      margin-bottom: 35px;
-      padding: 25px;
-      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-      border-radius: 15px;
-      border-left: 6px solid #27AF60;
-    }
-
-    .content-section h2 {
-      color: #2c3e50;
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      font-weight: 700;
-    }
-
-    .content-section p {
-      color: #555;
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 15px;
-    }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
-    }
-
-    .feature-item {
-      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-      padding: 30px;
-      border-radius: 15px;
-      border: 2px solid #27AF60;
-      transition: all 0.4s ease;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-item::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
+    .progress-container {
+      background: #eee;
+      border-radius: 10px;
+      height: 15px;
       width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #27AF60, #20c997);
+      margin: 10px auto;
     }
 
-    .feature-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(39, 175, 96, 0.2);
-      border-color: #20c997;
-    }
-
-    .feature-item h3 {
-      color: #27AF60;
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      font-weight: 700;
-    }
-
-    .feature-item p {
-      color: #555;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .price-section {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-      color: white;
-      padding: 45px;
-      border-radius: 20px;
-      text-align: center;
-      margin: 40px 0;
-      box-shadow: 0 15px 40px rgba(44, 62, 80, 0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .price-section::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-      100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    }
-
-    .price-section h3 {
-      font-size: 2rem;
-      margin-bottom: 25px;
-      font-weight: 700;
-    }
-
-    .original-price {
-      text-decoration: line-through;
-      color: #bdc3c7;
-      font-size: 1.4rem;
-    }
-
-    .current-price {
-      font-size: 3rem;
-      font-weight: 900;
-      color: #f39c12;
-      margin: 20px 0;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .buttons-container {
-      display: flex;
-      gap: 30px;
-      justify-content: center;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-
-    .desktop-btn {
-      padding: 20px 40px;
-      border: none;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      font-weight: 700;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      transition: all 0.4s ease;
-      min-width: 250px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .desktop-btn.btn-accept {
-      background: linear-gradient(135deg, #27AF60 0%, #20c997 100%);
-      color: white;
-      box-shadow: 0 8px 25px rgba(39, 175, 96, 0.4);
-    }
-
-    .desktop-btn.btn-accept:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 35px rgba(39, 175, 96, 0.6);
-    }
-
-    .desktop-btn.btn-decline {
-      background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
-      color: white;
-      box-shadow: 0 8px 25px rgba(149, 165, 166, 0.4);
-    }
-
-    .desktop-btn.btn-decline:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(149, 165, 166, 0.6);
-    }
-
-    .disclaimer {
-      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-      border: 2px solid #f39c12;
-      border-radius: 12px;
-      padding: 25px;
-      margin: 35px 0;
-      font-size: 0.95rem;
-      color: #856404;
-      line-height: 1.6;
-      box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
-    }
-
-    .highlight-box {
-      background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
-      border: 2px solid #28a745;
-      border-radius: 15px;
-      padding: 25px;
-      margin: 30px 0;
-      text-align: center;
-      box-shadow: 0 5px 20px rgba(40, 167, 69, 0.2);
-    }
-
-    .highlight-box h4 {
-      color: #155724;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-
-    .highlight-box p {
-      color: #155724;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .testimonial-section {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      padding: 40px;
-      border-radius: 20px;
-      margin: 40px 0;
-      text-align: center;
-    }
-
-    .testimonial-section h3 {
-      font-size: 1.8rem;
-      margin-bottom: 25px;
-      font-weight: 700;
-    }
-
-    .testimonial {
-      font-style: italic;
-      font-size: 1.1rem;
-      margin: 20px 0;
-      padding: 20px;
-      background: rgba(255,255,255,0.1);
+    .progress-bar {
+      background: #1fa61f;
+      height: 15px;
+      width: 20%;
       border-radius: 10px;
     }
 
-    /* Estilos globais para desktop */
-    #desktop-content {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      min-height: 100vh;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: #333;
-      padding: 20px;
+    .price-circle {
+      font-size: 28px;
+      color: #1fa61f;
+      font-weight: bold;
+      border: 2px solid #1fa61f;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 5px 20px;
+      margin: 20px 0;
     }
 
-    @media (max-width: 768px) {
-      .desktop-container {
-        margin: 10px;
-        padding: 20px;
-      }
+    .faq-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 40px;
+    }
 
-      .desktop-header h1 {
-        font-size: 2.2rem;
-      }
+    .faq-item {
+      color: #1fa61f;
+      font-weight: bold;
+      margin-top: 10px;
+    }
 
-      .buttons-container {
-        flex-direction: column;
-        align-items: center;
-      }
+    .faq-text {
+      font-size: 13px;
+      color: #333;
+      margin: 10px 0;
+    }
 
-      .desktop-btn {
-        min-width: 100%;
-      }
+    .fornpay_btn {
+      background: #3d94f6;
+      background-image: -webkit-linear-gradient(top, #3d94f6, #1e62d0);
+      background-image: -moz-linear-gradient(top, #3d94f6, #1e62d0);
+      background-image: -ms-linear-gradient(top, #3d94f6, #1e62d0);
+      background-image: -o-linear-gradient(top, #3d94f6, #1e62d0);
+      background-image: -webkit-gradient(to bottom, #3d94f6, #1e62d0);
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      color: #fff;
+      font-family: Arial;
+      font-size: 18px;
+      font-weight: 100;
+      padding: 10px 20px;
+      border: 1px solid #337fed;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+      text-align: center;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .fornpay_downsell {
+      color: #004faa;
+      font-family: Arial;
+      margin-top: 10px;
+      font-size: 16px !important;
+      font-weight: 100;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+      text-align: center;
     }
   </style>
-  <script>
-    // Variável global para travar a decisão inicial
-    let contentTypeDecided = false;
-    let isRealMobileDevice = false;
-    
-    function isRealMobile() {
-      // DETECÇÃO INTELIGENTE - Rigorosa com emuladores, permissiva com mobiles reais
-      
-      // 1. Informações básicas da tela
-      const realScreenWidth = screen.width;
-      const realScreenHeight = screen.height;
-      const viewportWidth = window.innerWidth;
-      const viewportHeight = window.innerHeight;
-      const userAgent = navigator.userAgent.toLowerCase();
-      
-      // 2. User Agent - verificação básica
-      const mobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent);
-      
-      // 3. Características REAIS de mobile
-      const hasTouchScreen = ('ontouchstart' in window) && (navigator.maxTouchPoints > 0);
-      const hasOrientationAPI = ('orientation' in window);
-      const hasMotionAPI = ('DeviceMotionEvent' in window);
-      
-      // 4. Verificar se é um DESKTOP muito óbvio
-      const isObviousDesktop = realScreenWidth >= 1366 && realScreenHeight >= 768;
-      const isTooWideForMobile = realScreenWidth > 1024;
-      
-      // 5. Detectar EMULADOR (viewport muito diferente da tela real)
-      const viewportDiffWidth = Math.abs(viewportWidth - realScreenWidth);
-      const viewportDiffHeight = Math.abs(viewportHeight - realScreenHeight);
-      const isLikelyEmulator = (viewportDiffWidth > 100 || viewportDiffHeight > 150) && isObviousDesktop;
-      
-      // 6. Detectar mouse (desktop indicator)
-      const hasMouseCapability = matchMedia('(any-hover: hover)').matches;
-      
-      // 7. Verificar se é Chrome desktop simulando
-      const isChromeDesktop = userAgent.includes('chrome') && 
-                             (userAgent.includes('windows') || userAgent.includes('macintosh') || userAgent.includes('linux')) && 
-                             !userAgent.includes('mobile');
-      
-      // 8. Tamanho típico de mobile
-      const maxDimension = Math.max(realScreenWidth, realScreenHeight);
-      const minDimension = Math.min(realScreenWidth, realScreenHeight);
-      const isMobileSize = maxDimension <= 1024 && minDimension <= 768;
-      
-      // LÓGICA SIMPLIFICADA E MAIS PERMISSIVA:
-      
-      // Se tem características óbvias de DESKTOP = bloqueia
-      if (isObviousDesktop && hasMouseCapability && !hasTouchScreen) {
-        return false; // Desktop claro
-      }
-      
-      // Se é emulador óbvio = bloqueia  
-      if (isLikelyEmulator && isChromeDesktop) {
-        return false; // Emulador detectado
-      }
-      
-      // Se tem User Agent mobile E (touch OU tamanho mobile) = permite
-      if (mobileUA && (hasTouchScreen || isMobileSize)) {
-        return true; // Mobile real ou muito provável
-      }
-      
-      // Se tem tamanho mobile E touch = permite (mesmo sem UA mobile)
-      if (isMobileSize && hasTouchScreen && hasOrientationAPI) {
-        return true; // Mobile sem UA mobile (raro mas possível)
-      }
-      
-      // Se tela pequena E viewport pequeno = provavelmente mobile
-      if (realScreenWidth <= 768 && viewportWidth <= 768) {
-        return true; // Mobile com tela pequena
-      }
-      
-      // Caso padrão: desktop
-      return false;
-    }
-    
-    function forceDesktopView() {
-      document.getElementById("desktop-content").style.display = "block";
-      document.getElementById("mobile-content").style.display = "none";
-      contentTypeDecided = true;
-      isRealMobileDevice = false;
-    }
-    
-    function forceMobileView() {
-      document.getElementById("mobile-content").style.display = "block";
-      document.getElementById("desktop-content").style.display = "none";
-      contentTypeDecided = true;
-      isRealMobileDevice = true;
-    }
-    
-    function showContent() {
-      // Se já decidiu, não muda mais (TRAVA A DECISÃO)
-      if (contentTypeDecided) {
-        return;
-      }
-      
-      // Faz a verificação UMA VEZ só
-      if (isRealMobile()) {
-        forceMobileView();
-      } else {
-        forceDesktopView();
-      }
-    }
-    
-    // Detecta DevTools sendo aberto APÓS a decisão inicial (mais permissivo)
-    function detectDevToolsAfterLoad() {
-      // Só força desktop se detectar DevTools E for tela grande
-      const threshold = 200; // Mais permissivo
-      const isDevToolsOpen = (window.outerHeight - window.innerHeight > threshold) ||
-                            (window.outerWidth - window.innerWidth > threshold);
-      
-      const hasDesktopScreen = screen.width >= 1366;
-      
-      if (isDevToolsOpen && isRealMobileDevice && hasDesktopScreen) {
-        // Só força desktop se for tela de desktop COM DevTools
-        forceDesktopView();
-      }
-    }
-    
-    // Executa APENAS quando a página carrega
-    window.addEventListener('load', () => {
-      showContent();
-      
-      // Monitora DevTools de forma mais permissiva
-      setInterval(detectDevToolsAfterLoad, 2000);
-    });
-    
-    // Proteções leves mantidas
-    document.addEventListener('keydown', (e) => {
-      // Só bloqueia se for desktop óbvio
-      if (screen.width >= 1366 && 
-          (e.keyCode === 123 || 
-           (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
-           (e.ctrlKey && e.keyCode === 85))) {
-        e.preventDefault();
-        return false;
-      }
-    });
-    
-    document.addEventListener('contextmenu', (e) => {
-      // Só bloqueia right-click em desktop
-      if (screen.width >= 1366) {
-        e.preventDefault();
-        return false;
-      }
-    });
-    
-    // Console clear mais espaçado
-    if (typeof console !== 'undefined') {
-      setInterval(() => {
-        console.clear();
-      }, 10000); // 10 segundos
-    }
-  </script>
 </head>
 <body>
+  <div class="top-banner">NO ABANDONES ESTA PAGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA! SU ACCESO SERÁ LIBERADO DESPUÉS DE LOS PASOS.</div>
+  <div class="container">
+    <img src="https://i.postimg.cc/s2hWrVKw/What-Spy-Logo-PNG-WEBP.webp" alt="SPYY APP" class="logo">
 
-<!-- CONTEÚDO PARA MOBILE -->
-<div id="mobile-content">
-  <div class="top-banner" style="background:#27AF60;color:white;font-weight:bold;padding:10px;font-size:16px;text-align:center;">
-    ¡NO ABANDONES ESTA PÁGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA!
-  </div>
-  <div style="padding:40px 20px;max-width:600px;margin:0 auto;text-align:center">
-    <img src="https://analisohoje.site/wp-content/uploads/2024/09/removal.ai_30a5e5ca-fd0b-4fef-86cc-b04b0151087f-pmefoowzsyeznu-1ngraza.png" alt="Protocolo Secreto" style="max-width:200px;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.2);">
-    
-    <h2 style="color:#2c3e50;font-size:24px;margin:20px 0;font-weight:800;">¡FELICIDADES!!</h2>
-    <h3 style="color:#27AF60;font-size:20px;margin:15px 0;font-weight:600;">Casi accediendo al entrenamiento</h3>
-    
-    <div style="background:#ecf0f1;border-radius:15px;height:20px;width:100%;margin:20px auto;overflow:hidden;">
-      <div style="background:linear-gradient(90deg,#27AF60,#20c997);height:20px;width:100%;border-radius:15px;animation:progress 2s ease-out;"></div>
-    </div>
-    
-    <style>
-      @keyframes progress {
-        from { width: 0%; }
-        to { width: 100%; }
-      }
-    </style>
-    
-    <div style="background:linear-gradient(135deg,#d4edda,#c3e6cb);border:2px solid #28a745;border-radius:15px;padding:20px;margin:25px 0;">
-      <p style="color:#155724;font-weight:700;font-size:16px;margin:0;">¡Transforma tu productividad con el Protocolo Secreto!</p>
-    </div>
-    
-    <p style="color:#2c3e50;font-size:15px;line-height:1.6;margin:20px 0;"><strong>Este entrenamiento te ayudará a estructurar mejor tus ideas, crear hábitos consistentes y alcanzar tus metas de forma organizada.</strong></p>
-    
-    <p style="color:#555;font-size:14px;line-height:1.5;margin:15px 0;">Aprenderás un conjunto de pasos claros que te auxiliarán en tu productividad, en la toma de decisiones y en el logro de objetivos personales o profesionales. Todo enseñado de forma simple, directa y práctica.</p>
-    
-    <div style="background:linear-gradient(135deg,#2c3e50,#34495e);color:white;border-radius:15px;padding:20px;margin:25px 0;">
-      <p style="margin:0 0 10px 0;font-size:16px;">POR SOLO</p>
-      <div style="font-size:36px;color:#f39c12;font-weight:900;margin:10px 0;text-shadow:2px 2px 4px rgba(0,0,0,0.5);">$ 97,00</div>
-    </div>
-    
-    <div style="text-align:center">
-      <button id="kiwify-upsell-trigger-kdIiDXL" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">¡SÍ! LO QUIERO.</button>
-      <div id="kiwify-upsell-cancel-trigger" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">NO QUIERO, GRACIAS</div>
+    <h2>FELICIDADES!!</h2>
+    <h3>Casi accediendo a mensajes</h3>
+
+    <div class="progress-container">
+      <div class="progress-bar"></div>
     </div>
 
-    <div style="background:#fff3cd;border:2px solid #f39c12;border-radius:10px;padding:15px;margin:25px 0;">
-      <p style="font-size:13px;color:#856404;margin:0;line-height:1.4;">
-        Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!
-      </p>
-    </div>
+    <p><strong>¡Aumenta tu seguridad clonando el WhatsApp de tu pareja!</strong></p>
+    <p><strong>Con nuestra avanzada tecnología de seguridad podrás espiar con total secreto, sin riesgo de ser descubierto.</strong></p>
+ <p><strong>Utilizamos autenticación de dos factores y encriptación de extremo a extremo para proteger sus datos.</strong></p>
+ <p><strong>Además, nuestros desarrolladores han habilitado una opción para deshabilitar cualquier alerta de seguridad de WhatsApp.</strong></p>
+ <p><strong>POR SOLO:</strong></p>
+	  
+    <div class="price-circle"> $ 97,00</div>
 
-    <div style="background:linear-gradient(135deg,#667eea,#764ba2);color:white;border-radius:15px;padding:20px;margin:25px 0;">
-      <h4 style="margin:0 0 15px 0;font-size:16px;font-weight:700;">🎯 METODOLOGÍA COMPROBADA</h4>
-      <p style="margin:0;font-size:13px;line-height:1.4;">Miles de personas ya han transformado su productividad usando este protocolo. Resultados garantizados siguiendo el método paso a paso.</p>
+<div style="text-align:center" id="kiwify-upsell-kdIiDXL" data-upsell-url="https://danaga.uhealthy.site/up5/" data-downsell-url="https://danaga.uhealthy.site/up5/">
+          <button id="kiwify-upsell-trigger-kdIiDXL" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">¡SÍ! QUIERO</button>
+          <div id="kiwify-upsell-cancel-trigger-kdIiDXL" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">Não, eu gostaria de recusar essa oferta</div>
+        </div><script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+
+	  <!-- AVISO DE REINTENTO -->
+<p style="font-size: 14px; color: #555; margin-top: 10px;">
+  Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!
+</p>
+	
+
+    <div class="faq-title">PREGUNTAS FRECUENTES</div>
+    <div class="faq-item">↩ ¿Por qué debo pagar esto?</div>
+    <div class="faq-text">
+      Sin este seguro, no podemos protegerte de ser descubierto si clonas, ¡esto hace que sea imposible para nosotros utilizar herramientas que usamos externamente para garantizar tu seguridad y mantener todo completamente confidencial!
     </div>
   </div>
-</div>
 
-<!-- CONTEÚDO PARA DESKTOP -->
-<div id="desktop-content">
-    <div class="desktop-container">
-        <div class="desktop-header">
-            <h1>🚀 ¡EL PROTOCOLO SECRETO QUE CAMBIARÁ TU VIDA!</h1>
-            <p class="subtitle">Descubre el método revolucionario que miles de personas están usando para estructurar sus ideas, crear hábitos duraderos y alcanzar sus metas de forma organizada y efectiva.</p>
-        </div>
+  <script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
-        <div class="content-section">
-            <h2>⚡ ¿Qué Es El Truco del Protocolo Secreto?</h2>
-            <p>Es un entrenamiento online diseñado específicamente para personas que quieren transformar su productividad y organización personal. No es solo otro curso más, es un sistema completo que te guiará paso a paso para implementar cambios reales y duraderos en tu vida.</p>
-            <p>En este curso aprenderás a aplicar un conjunto de pasos claros — el "Protocolo Secreto" — que te ayudará a mejorar tu productividad, tomar mejores decisiones y alcanzar tus metas personales o profesionales de manera sistemática y efectiva.</p>
-        </div>
-
-        <div class="testimonial-section">
-            <h3>💬 Lo Que Dicen Nuestros Estudiantes</h3>
-            <div class="testimonial">
-                "En solo 2 semanas ya había implementado 3 nuevos hábitos que transformaron mi rutina diaria. El protocolo es increíblemente efectivo." - María González, Emprendedora
-            </div>
-            <div class="testimonial">
-                "Finalmente encontré un método que funciona. Pasé de sentirme abrumado a tener control total sobre mis proyectos y objetivos." - Carlos Rodríguez, Ejecutivo
-            </div>
-        </div>
-
-        <div class="highlight-box">
-            <h4>🎯 METODOLOGÍA SIMPLE Y EFECTIVA</h4>
-            <p>Todo está enseñado de forma simple, directa y práctica, para que cualquier persona pueda comenzar a aplicarlo inmediatamente, sin importar su nivel de experiencia previa.</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature-item">
-                <h3>🧠 Estructuración de Ideas</h3>
-                <p>Aprende técnicas avanzadas para organizar y clarificar tus pensamientos, convirtiendo ideas confusas en planes de acción concretos y realizables.</p>
-            </div>
-            <div class="feature-item">
-                <h3>⏰ Creación de Hábitos Consistentes</h3>
-                <p>Domina el arte de formar hábitos que perduren en el tiempo. Sistema probado para integrar nuevas rutinas sin esfuerzo excesivo.</p>
-            </div>
-            <div class="feature-item">
-                <h3>📈 Planificación Estratégica</h3>
-                <p>Convierte tus planes en realidad con metodologías de planificación que te permitirán avanzar de forma consistente hacia tus objetivos.</p>
-            </div>
-            <div class="feature-item">
-                <h3>🎯 Toma de Decisiones Efectiva</h3>
-                <p>Desarrolla criterios claros para tomar decisiones importantes de manera rápida y acertada, eliminando la parálisis por análisis.</p>
-            </div>
-            <div class="feature-item">
-                <h3>🔄 Sistema de Seguimiento</h3>
-                <p>Herramientas y técnicas para monitorear tu progreso, ajustar estrategias y mantener el momentum hacia tus metas.</p>
-            </div>
-            <div class="feature-item">
-                <h3>💪 Mentalidad de Crecimiento</h3>
-                <p>Desarrolla la mentalidad correcta para el éxito a largo plazo, superando bloqueos mentales y limitaciones autoimpuestas.</p>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>🔥 ¿Por Qué Este Protocolo Es Diferente?</h2>
-            <p>A diferencia de otros métodos complicados, el Protocolo Secreto se basa en principios simples pero poderosos que han sido probados y refinados por miles de personas exitosas. No necesitas años de práctica para ver resultados.</p>
-            <p>Este sistema está diseñado para personas ocupadas que necesitan resultados rápidos sin complicaciones innecesarias. Cada lección está estructurada para maximizar tu tiempo y acelerar tu progreso.</p>
-        </div>
-
-        <div class="price-section">
-            <h3>💎 Inversión en Tu Futuro</h3>
-            <div class="original-price">Valor normal del curso completo: $297 USD</div>
-            <div class="current-price">$97.00 USD</div>
-            <p style="font-size: 1.1rem; opacity: 0.9; font-weight: 600;">⏰ Oferta por tiempo limitado</p>
-            <p style="font-size: 0.9rem; opacity: 0.8;">Acceso inmediato • Material de por vida • Soporte incluido</p>
-        </div>
-
-        <div style="text-align:center">
-          <button id="kiwify-upsell-trigger-kdIiDXL" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">¡SÍ! LO QUIERO.</button>
-          <div id="kiwify-upsell
+</body>
+</html>
